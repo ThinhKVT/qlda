@@ -1,0 +1,73 @@
+<svg width="600" height="800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Form background -->
+  <rect x="0" y="0" width="600" height="800" rx="16" fill="#fff" stroke="#BDBDBD" />
+  <text x="40" y="50" font-size="24" fill="#1976D2" font-family="Arial">Thêm/Sửa Dự án</text>
+  <!-- Tên dự án -->
+  <text x="40" y="100" font-size="16" fill="#212121" font-family="Arial">Tên dự án *</text>
+  <rect x="40" y="110" width="520" height="40" rx="8" fill="#F5F5F5" stroke="#BDBDBD" />
+  <!-- Loại dự án (dropdown) -->
+  <text x="40" y="170" font-size="16" fill="#212121" font-family="Arial">Loại dự án *</text>
+  <g>
+    <rect x="40" y="180" width="520" height="40" rx="8" fill="#F5F5F5" stroke="#BDBDBD" />
+    <polygon points="525,195 535,195 530,205" fill="#1976D2" />
+    <text x="60" y="205" font-size="15" fill="#757575" font-family="Arial">Chọn loại dự án</text>
+  </g>
+  <!-- Phòng đầu mối (dropdown) -->
+  <text x="40" y="240" font-size="16" fill="#212121" font-family="Arial">Phòng đầu mối *</text>
+  <g>
+    <rect x="40" y="250" width="520" height="40" rx="8" fill="#F5F5F5" stroke="#BDBDBD" />
+    <polygon points="525,265 535,265 530,275" fill="#1976D2" />
+    <text x="60" y="275" font-size="15" fill="#757575" font-family="Arial">Chọn phòng đầu mối</text>
+  </g>
+  <!-- Cán bộ đầu mối -->
+  <text x="40" y="310" font-size="16" fill="#212121" font-family="Arial">Cán bộ đầu mối *</text>
+  <rect x="40" y="320" width="520" height="40" rx="8" fill="#F5F5F5" stroke="#BDBDBD" />
+  <!-- Cán bộ quản lý dự án -->
+  <text x="40" y="380" font-size="16" fill="#212121" font-family="Arial">Cán bộ quản lý dự án *</text>
+  <rect x="40" y="390" width="520" height="40" rx="8" fill="#F5F5F5" stroke="#BDBDBD" />
+  <!-- Năm kế hoạch (calendar year picker) -->
+  <text x="40" y="450" font-size="16" fill="#212121" font-family="Arial">Năm kế hoạch *</text>
+  <g>
+    <rect x="40" y="460" width="520" height="40" rx="8" fill="#F5F5F5" stroke="#BDBDBD" />
+    <rect x="500" y="465" width="36" height="30" rx="6" fill="#E3F2FD" stroke="#1976D2" />
+    <text x="510" y="485" font-size="18" fill="#1976D2" font-family="Arial">📅</text>
+    <text x="60" y="485" font-size="15" fill="#757575" font-family="Arial">Chọn năm</text>
+  </g>
+  <!-- Kinh phí đầu tư + đơn vị tiền tệ -->
+  <text x="40" y="520" font-size="16" fill="#212121" font-family="Arial">Kinh phí đầu tư *</text>
+  <rect x="40" y="530" width="380" height="40" rx="8" fill="#F5F5F5" stroke="#BDBDBD" />
+  <!-- Đơn vị tiền tệ dropdown -->
+  <g>
+    <rect x="430" y="530" width="130" height="40" rx="8" fill="#F5F5F5" stroke="#BDBDBD" />
+    <polygon points="540,545 550,545 545,555" fill="#1976D2" />
+    <text x="450" y="555" font-size="15" fill="#757575" font-family="Arial">VND</text>
+  </g>
+  <!-- Loại kế hoạch (dropdown) -->
+  <text x="40" y="590" font-size="16" fill="#212121" font-family="Arial">Loại kế hoạch *</text>
+  <g>
+    <rect x="40" y="600" width="520" height="40" rx="8" fill="#F5F5F5" stroke="#BDBDBD" />
+    <polygon points="525,615 535,615 530,625" fill="#1976D2" />
+    <text x="60" y="625" font-size="15" fill="#757575" font-family="Arial">Chọn loại kế hoạch</text>
+  </g>
+  <!-- Ngày bắt đầu (calendar) -->
+  <text x="40" y="660" font-size="16" fill="#212121" font-family="Arial">Ngày bắt đầu *</text>
+  <g>
+    <rect x="40" y="670" width="240" height="40" rx="8" fill="#F5F5F5" stroke="#BDBDBD" />
+    <rect x="220" y="675" width="36" height="30" rx="6" fill="#E3F2FD" stroke="#1976D2" />
+    <text x="230" y="695" font-size="18" fill="#1976D2" font-family="Arial">📅</text>
+    <text x="60" y="695" font-size="15" fill="#757575" font-family="Arial">dd/mm/yyyy</text>
+  </g>
+  <!-- Ngày kết thúc (calendar) -->
+  <text x="320" y="660" font-size="16" fill="#212121" font-family="Arial">Ngày kết thúc *</text>
+  <g>
+    <rect x="320" y="670" width="240" height="40" rx="8" fill="#F5F5F5" stroke="#BDBDBD" />
+    <rect x="500" y="675" width="36" height="30" rx="6" fill="#E3F2FD" stroke="#1976D2" />
+    <text x="510" y="695" font-size="18" fill="#1976D2" font-family="Arial">📅</text>
+    <text x="340" y="695" font-size="15" fill="#757575" font-family="Arial">dd/mm/yyyy</text>
+  </g>
+  <!-- Action buttons -->
+  <rect x="340" y="740" width="100" height="40" rx="8" fill="#1976D2" />
+  <text x="370" y="765" font-size="16" fill="#fff" font-family="Arial">Lưu</text>
+  <rect x="460" y="740" width="100" height="40" rx="8" fill="#BDBDBD" />
+  <text x="490" y="765" font-size="16" fill="#fff" font-family="Arial">Hủy</text>
+</svg>

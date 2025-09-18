@@ -1,0 +1,77 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg" style="background:#fff">
+  <!-- Sidebar (same as other screens) -->
+  <rect x="0" y="0" width="220" height="1080" fill="#1976D2" />
+  <text x="30" y="60" font-size="24" fill="#fff" font-family="Arial">Menu</text>
+  <!-- Dự án main menu -->
+  <rect x="0" y="100" width="220" height="50" fill="#1565C0" />
+  <text x="30" y="130" font-size="18" fill="#fff" font-family="Arial">Dự án</text>
+  <!-- Gói thầu submenu (indented, smaller font, lighter background) -->
+  <rect x="0" y="150" width="220" height="40" fill="#E3F2FD" />
+  <text x="50" y="175" font-size="16" fill="#1976D2" font-family="Arial">Gói thầu</text>
+  <!-- Các menu khác -->
+  <rect x="0" y="200" width="220" height="50" fill="#1976D2" />
+  <text x="30" y="230" font-size="18" fill="#fff" font-family="Arial">Nhà thầu</text>
+  <!-- Topbar -->
+  <rect x="220" y="0" width="1700" height="64" fill="#2196F3" />
+  <!-- Back button -->
+  <g id="back-button" cursor="pointer">
+    <rect x="230" y="18" width="32" height="32" rx="8" fill="#1976D2" />
+    <polygon points="250,34 262,22 262,46" fill="#fff" />
+    <text x="270" y="40" font-size="18" fill="#fff" font-family="Arial">Back</text>
+  </g>
+  <text x="340" y="40" font-size="24" fill="#fff" font-family="Arial">Chi tiết gói thầu</text>
+  <!-- Info Card -->
+  <rect x="250" y="100" width="1620" height="180" rx="12" fill="#fff" stroke="#BDBDBD" />
+  <text x="270" y="140" font-size="22" fill="#1976D2" font-family="Arial">Gói thầu: Tên gói thầu</text>
+  <text x="270" y="180" font-size="16" fill="#212121" font-family="Arial">Lĩnh vực: Mua sắm</text>
+  <text x="270" y="210" font-size="16" fill="#212121" font-family="Arial">Giá gói thầu: 2 tỷ VND</text>
+  <text x="270" y="240" font-size="16" fill="#212121" font-family="Arial">Thời gian thực hiện: 6 tháng</text>
+  <text x="600" y="180" font-size="16" fill="#212121" font-family="Arial">Nguồn vốn: Ngân sách nhà nước</text>
+  <text x="600" y="210" font-size="16" fill="#212121" font-family="Arial">Hình thức LCNT: Đấu thầu rộng rãi</text>
+  <text x="600" y="240" font-size="16" fill="#388E3C" font-family="Arial">Trạng thái: Đang đấu thầu</text>
+  <text x="1000" y="180" font-size="16" fill="#212121" font-family="Arial">Phương thức LCNT: 1 giai đoạn 2 túi hồ sơ</text>
+  <text x="1000" y="210" font-size="16" fill="#212121" font-family="Arial">Loại hợp đồng: Trọn gói</text>
+  <text x="1400" y="180" font-size="16" fill="#212121" font-family="Arial">Thời gian TCLCNT: 30 ngày</text>
+  <text x="1400" y="210" font-size="16" fill="#212121" font-family="Arial">Thời gian bắt đầu TCLCNT: Quý 1/2025</text>
+  <!-- Tabs as tab style (no rounded corners, 4 tabs, data-toggle="tab" style) -->
+  <g>
+    <rect x="250" y="300" width="180" height="40" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" />
+    <text x="340" y="325" font-size="16" fill="#1976D2" font-family="Arial" text-anchor="middle">Thông tin hợp đồng</text>
+    <rect x="430" y="300" width="140" height="40" fill="#E3F2FD" stroke="#1976D2" stroke-width="2" />
+    <text x="500" y="325" font-size="16" fill="#1976D2" font-family="Arial" text-anchor="middle">Thanh toán</text>
+    <rect x="570" y="300" width="120" height="40" fill="#1976D2" />
+    <text x="630" y="325" font-size="16" fill="#fff" font-family="Arial" text-anchor="middle">Tài liệu</text>
+    <!-- Tab underline for active tab -->
+    <rect x="570" y="340" width="120" height="4" fill="#1976D2" />
+  </g>
+  <!-- Section: Tài liệu đính kèm -->
+  <rect x="250" y="360" width="1620" height="40" fill="#E3F2FD" />
+  <text x="270" y="385" font-size="16" fill="#1976D2" font-family="Arial">STT</text>
+  <text x="320" y="385" font-size="16" fill="#1976D2" font-family="Arial">Loại tài liệu</text>
+  <text x="700" y="385" font-size="16" fill="#1976D2" font-family="Arial">Tên tài liệu</text>
+  <text x="900" y="385" font-size="16" fill="#1976D2" font-family="Arial">Số tài liệu</text>
+  <text x="1100" y="385" font-size="16" fill="#1976D2" font-family="Arial">Ngày ký</text>
+  <text x="1250" y="385" font-size="16" fill="#1976D2" font-family="Arial">Ngày upload</text>
+  <text x="1400" y="385" font-size="16" fill="#1976D2" font-family="Arial">Người upload</text>
+  <text x="1550" y="385" font-size="16" fill="#1976D2" font-family="Arial">Hành động</text>
+  <!-- Example document rows -->
+  <rect x="250" y="400" width="1620" height="40" fill="#fff" stroke="#E0E0E0" />
+  <text x="270" y="425" font-size="15" fill="#212121" font-family="Arial">1</text>
+  <text x="320" y="425" font-size="15" fill="#212121" font-family="Arial">Quyết định thành lập tổ chuyên gia</text>
+  <text x="700" y="425" font-size="15" fill="#212121" font-family="Arial">QD-TCG-001</text>
+  <text x="900" y="425" font-size="15" fill="#212121" font-family="Arial">001/2025/QD-TCG</text>
+  <text x="1100" y="425" font-size="15" fill="#212121" font-family="Arial">01/01/2025</text>
+  <text x="1250" y="425" font-size="15" fill="#212121" font-family="Arial">01/01/2025</text>
+  <text x="1400" y="425" font-size="15" fill="#212121" font-family="Arial">Nguyễn Văn A</text>
+  <text x="1550" y="425" font-size="15" fill="#1976D2" font-family="Arial">Tải | Xem | Upload | Xoá</text>
+  <rect x="250" y="440" width="1620" height="40" fill="#FAFAFA" stroke="#E0E0E0" />
+  <text x="270" y="465" font-size="15" fill="#212121" font-family="Arial">2</text>
+  <text x="320" y="465" font-size="15" fill="#212121" font-family="Arial">Quyết định thành lập tổ thẩm định</text>
+  <text x="700" y="465" font-size="15" fill="#212121" font-family="Arial">QD-TTD-001</text>
+  <text x="900" y="465" font-size="15" fill="#212121" font-family="Arial">002/2025/QD-TTD</text>
+  <text x="1100" y="465" font-size="15" fill="#212121" font-family="Arial">02/01/2025</text>
+  <text x="1250" y="465" font-size="15" fill="#212121" font-family="Arial">02/01/2025</text>
+  <text x="1400" y="465" font-size="15" fill="#212121" font-family="Arial">Nguyễn Văn B</text>
+  <text x="1550" y="465" font-size="15" fill="#1976D2" font-family="Arial">Tải | Xem | Upload | Xoá</text>
+  <!-- ...more document rows as needed... -->
+</svg>
