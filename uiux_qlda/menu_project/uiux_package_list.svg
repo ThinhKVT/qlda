@@ -1,14 +1,11 @@
 <svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg" style="background:#fff">
-  <!-- Sidebar (đồng bộ với project list) -->
+  <!-- Sidebar (same as uiux_project_detail.svg) -->
   <rect x="0" y="0" width="220" height="1080" fill="#1976D2" />
   <text x="30" y="60" font-size="24" fill="#fff" font-family="Arial">Menu</text>
-  <!-- Dự án main menu -->
   <rect x="0" y="100" width="220" height="50" fill="#1565C0" />
   <text x="30" y="130" font-size="18" fill="#fff" font-family="Arial">Dự án</text>
-  <!-- Gói thầu submenu (indented, smaller font, lighter background) -->
-  <rect x="0" y="150" width="220" height="40" fill="#E3F2FD" />
-  <text x="50" y="175" font-size="16" fill="#1976D2" font-family="Arial">Gói thầu</text>
-  <!-- Các menu khác -->
+  <rect x="0" y="150" width="220" height="50" fill="#1976D2" />
+  <text x="30" y="180" font-size="18" fill="#fff" font-family="Arial">Gói thầu</text>
   <rect x="0" y="200" width="220" height="50" fill="#1976D2" />
   <text x="30" y="230" font-size="18" fill="#fff" font-family="Arial">Nhà thầu</text>
   <!-- Topbar (đồng bộ chiều rộng) -->
@@ -20,13 +17,15 @@
     <text x="270" y="40" font-size="18" fill="#fff" font-family="Arial">Back</text>
   </g>
   <text x="340" y="40" font-size="24" fill="#fff" font-family="Arial">Chi tiết dự án</text>
-  <!-- Project Info Card (moved to fit new width) -->
+  <!-- Project Info Card (moved to fit new width, đồng bộ với project detail) -->
   <rect x="250" y="120" width="1620" height="120" rx="12" fill="#fff" stroke="#BDBDBD" />
   <text x="270" y="150" font-size="20" fill="#1976D2" font-family="Arial">Dự án A</text>
-  <!-- Kinh phí đầu tư -->
   <text x="270" y="180" font-size="16" fill="#212121" font-family="Arial">Kinh phí đầu tư: 2 tỷ VND</text>
+  <text x="600" y="180" font-size="16" fill="#212121" font-family="Arial">Tổng giá trị hợp đồng: 1.8 tỷ VND</text>
+  <text x="950" y="180" font-size="16" fill="#212121" font-family="Arial">Loại kế hoạch: Mới</text>
   <text x="270" y="210" font-size="16" fill="#388E3C" font-family="Arial">Trạng thái: Đang thực hiện</text>
   <text x="600" y="210" font-size="16" fill="#212121" font-family="Arial">01/01/2025 - 31/12/2025</text>
+  <text x="950" y="210" font-size="16" fill="#212121" font-family="Arial">Năm kế hoạch: 2025</text>
   <!-- Progress bar (stretch to new width) -->
   <rect x="250" y="250" width="1620" height="20" rx="10" fill="#E3F2FD" />
   <rect x="250" y="250" width="810" height="20" rx="10" fill="#1976D2" />
@@ -51,7 +50,8 @@
   <!-- Adjusted vertical gap between tabs and table header to match project_detail -->
   <rect x="250" y="350" width="1620" height="40" fill="#E3F2FD" />
   <text x="275" y="375" font-size="16" fill="#1976D2" font-family="Arial" text-anchor="middle" alignment-baseline="middle">STT</text>
-  <text x="485" y="375" font-size="16" fill="#1976D2" font-family="Arial" text-anchor="middle" alignment-baseline="middle">Tên gói thầu</text>
+  <text x="380" y="375" font-size="16" fill="#1976D2" font-family="Arial" text-anchor="middle" alignment-baseline="middle">Mã gói thầu</text>
+  <text x="520" y="375" font-size="16" fill="#1976D2" font-family="Arial" text-anchor="middle" alignment-baseline="middle">Tên gói thầu</text>
   <text x="770" y="375" font-size="16" fill="#1976D2" font-family="Arial" text-anchor="middle" alignment-baseline="middle">Lĩnh vực</text>
   <text x="1010" y="375" font-size="16" fill="#1976D2" font-family="Arial" text-anchor="middle" alignment-baseline="middle">Giá gói thầu</text>
   <text x="1230" y="375" font-size="16" fill="#1976D2" font-family="Arial" text-anchor="middle" alignment-baseline="middle">Hình thức</text>
@@ -61,7 +61,8 @@
   <!-- Table rows (update y positions to match new header position) -->
   <rect x="250" y="390" width="1620" height="48" fill="#fff" stroke="#E0E0E0" />
   <text x="275" y="420" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">1</text>
-  <text x="485" y="420" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Gói thầu 1</text>
+  <text x="380" y="420" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">DA2025001GT01</text>
+  <text x="520" y="420" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Gói thầu 1</text>
   <text x="770" y="420" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Mua sắm</text>
   <text x="1010" y="420" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">2 tỷ</text>
   <text x="1230" y="420" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Đấu thầu rộng rãi</text>
@@ -76,7 +77,8 @@
   </g>
   <rect x="250" y="428" width="1620" height="48" fill="#FAFAFA" stroke="#E0E0E0" />
   <text x="275" y="458" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">2</text>
-  <text x="485" y="458" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Gói thầu 2</text>
+  <text x="380" y="458" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">DA2025001GT02</text>
+  <text x="520" y="458" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Gói thầu 2</text>
   <text x="770" y="458" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Xây lắp</text>
   <text x="1010" y="458" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">3 tỷ</text>
   <text x="1230" y="458" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Chỉ định thầu</text>
@@ -91,7 +93,8 @@
   </g>
   <rect x="250" y="476" width="1620" height="48" fill="#fff" stroke="#E0E0E0" />
   <text x="275" y="506" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">3</text>
-  <text x="485" y="506" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Gói thầu 3</text>
+  <text x="380" y="506" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">DA2025001GT03</text>
+  <text x="520" y="506" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Gói thầu 3</text>
   <text x="770" y="506" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Tư vấn</text>
   <text x="1010" y="506" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">1 tỷ</text>
   <text x="1230" y="506" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Đấu thầu rộng rãi</text>
@@ -106,7 +109,8 @@
   </g>
   <rect x="250" y="524" width="1620" height="48" fill="#FAFAFA" stroke="#E0E0E0" />
   <text x="275" y="554" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">4</text>
-  <text x="485" y="554" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Gói thầu 4</text>
+  <text x="380" y="554" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">DA2025001GT04</text>
+  <text x="520" y="554" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Gói thầu 4</text>
   <text x="770" y="554" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Mua sắm</text>
   <text x="1010" y="554" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">5 tỷ</text>
   <text x="1230" y="554" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Chỉ định thầu</text>
@@ -121,7 +125,8 @@
   </g>
   <rect x="250" y="572" width="1620" height="48" fill="#fff" stroke="#E0E0E0" />
   <text x="275" y="602" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">5</text>
-  <text x="485" y="602" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Gói thầu 5</text>
+  <text x="380" y="602" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">DA2025001GT05</text>
+  <text x="520" y="602" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Gói thầu 5</text>
   <text x="770" y="602" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Tư vấn</text>
   <text x="1010" y="602" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">1.5 tỷ</text>
   <text x="1230" y="602" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Đấu thầu rộng rãi</text>
@@ -136,7 +141,8 @@
   </g>
   <rect x="250" y="620" width="1620" height="48" fill="#FAFAFA" stroke="#E0E0E0" />
   <text x="275" y="650" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">6</text>
-  <text x="485" y="650" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Gói thầu 6</text>
+  <text x="380" y="650" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">DA2025001GT06</text>
+  <text x="520" y="650" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Gói thầu 6</text>
   <text x="770" y="650" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Mua sắm</text>
   <text x="1010" y="650" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">4 tỷ</text>
   <text x="1230" y="650" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Chỉ định thầu</text>
@@ -151,7 +157,8 @@
   </g>
   <rect x="250" y="668" width="1620" height="48" fill="#fff" stroke="#E0E0E0" />
   <text x="275" y="698" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">7</text>
-  <text x="485" y="698" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Gói thầu 7</text>
+  <text x="380" y="698" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">DA2025001GT07</text>
+  <text x="520" y="698" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Gói thầu 7</text>
   <text x="770" y="698" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Tư vấn</text>
   <text x="1010" y="698" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">2.5 tỷ</text>
   <text x="1230" y="698" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Đấu thầu rộng rãi</text>
@@ -166,7 +173,8 @@
   </g>
   <rect x="250" y="716" width="1620" height="48" fill="#FAFAFA" stroke="#E0E0E0" />
   <text x="275" y="746" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">8</text>
-  <text x="485" y="746" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Gói thầu 8</text>
+  <text x="380" y="746" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">DA2025001GT08</text>
+  <text x="520" y="746" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Gói thầu 8</text>
   <text x="770" y="746" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Mua sắm</text>
   <text x="1010" y="746" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">2 tỷ</text>
   <text x="1230" y="746" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Chỉ định thầu</text>
@@ -181,7 +189,8 @@
   </g>
   <rect x="250" y="764" width="1620" height="48" fill="#fff" stroke="#E0E0E0" />
   <text x="275" y="794" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">9</text>
-  <text x="485" y="794" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Gói thầu 9</text>
+  <text x="380" y="794" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">DA2025001GT09</text>
+  <text x="520" y="794" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Gói thầu 9</text>
   <text x="770" y="794" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Tư vấn</text>
   <text x="1010" y="794" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">1 tỷ</text>
   <text x="1230" y="794" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Đấu thầu rộng rãi</text>
@@ -196,7 +205,8 @@
   </g>
   <rect x="250" y="812" width="1620" height="48" fill="#FAFAFA" stroke="#E0E0E0" />
   <text x="275" y="842" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">10</text>
-  <text x="485" y="842" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Gói thầu 10</text>
+  <text x="380" y="842" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">DA2025001GT10</text>
+  <text x="520" y="842" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Gói thầu 10</text>
   <text x="770" y="842" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Mua sắm</text>
   <text x="1010" y="842" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">2 tỷ</text>
   <text x="1230" y="842" font-size="16" fill="#212121" font-family="Arial" text-anchor="middle" dominant-baseline="middle">Chỉ định thầu</text>
@@ -215,4 +225,15 @@
   <!-- Pagination (đẩy xuống dưới cùng, căn phải, có khoảng cách với bản ghi cuối cùng) -->
   <rect x="1670" y="900" width="200" height="36" rx="8" fill="#E3F2FD" />
   <text x="1690" y="925" font-size="15" fill="#1976D2" font-family="Arial">1 2 3 ... 10</text>
+  <!-- Notification & Setting buttons (topbar, right side) -->
+  <g id="notification-button" cursor="pointer">
+    <circle cx="1800" cy="32" r="18" fill="#fff" stroke="#1976D2" stroke-width="2" />
+    <path d="M1792 36 Q1800 20 1808 36" stroke="#1976D2" stroke-width="2" fill="none" />
+    <circle cx="1800" cy="38" r="3" fill="#1976D2" />
+  </g>
+  <g id="setting-button" cursor="pointer">
+    <circle cx="1850" cy="32" r="18" fill="#fff" stroke="#1976D2" stroke-width="2" />
+    <circle cx="1850" cy="32" r="7" fill="none" stroke="#1976D2" stroke-width="2" />
+    <rect x="1847" y="25" width="6" height="14" rx="2" fill="#1976D2" />
+  </g>
 </svg>

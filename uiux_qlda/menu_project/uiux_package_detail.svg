@@ -1,14 +1,17 @@
 <svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg" style="background:#fff">
-  <!-- Sidebar (same as other screens) -->
+  <!--
+    CHÚ THÍCH NGHIỆP VỤ:
+    - Các giai đoạn tiến độ của gói thầu sẽ được hiển thị và quản lý theo logic của loại dự án cha (tham khảo chi tiết ở file uiux_project_detail.svg).
+    - Khi thêm mới gói thầu vào dự án, các giai đoạn tiến độ tương ứng sẽ được tự động cập nhật vào tab Tiến độ của dự án theo loại dự án (Dự án, Phương án mua sắm hàng hoá, Phương án mua sắm dịch vụ, Phương án bảo trì).
+    - Nếu có nhiều gói thầu, giao diện tab Tiến độ sẽ xuất hiện thanh cuộn để xem hết các giai đoạn.
+  -->
+  <!-- Sidebar chỉnh giống project_detail -->
   <rect x="0" y="0" width="220" height="1080" fill="#1976D2" />
   <text x="30" y="60" font-size="24" fill="#fff" font-family="Arial">Menu</text>
-  <!-- Dự án main menu -->
   <rect x="0" y="100" width="220" height="50" fill="#1565C0" />
   <text x="30" y="130" font-size="18" fill="#fff" font-family="Arial">Dự án</text>
-  <!-- Gói thầu submenu (indented, smaller font, lighter background) -->
-  <rect x="0" y="150" width="220" height="40" fill="#E3F2FD" />
-  <text x="50" y="175" font-size="16" fill="#1976D2" font-family="Arial">Gói thầu</text>
-  <!-- Các menu khác -->
+  <rect x="0" y="150" width="220" height="50" fill="#1976D2" />
+  <text x="30" y="180" font-size="18" fill="#fff" font-family="Arial">Gói thầu</text>
   <rect x="0" y="200" width="220" height="50" fill="#1976D2" />
   <text x="30" y="230" font-size="18" fill="#fff" font-family="Arial">Nhà thầu</text>
   <!-- Topbar -->
@@ -20,6 +23,30 @@
     <text x="270" y="40" font-size="18" fill="#fff" font-family="Arial">Back</text>
   </g>
   <text x="340" y="40" font-size="24" fill="#fff" font-family="Arial">Chi tiết gói thầu</text>
+  <!-- Notification button (chuông giống project_detail) -->
+  <g id="notification-button" cursor="pointer">
+    <circle cx="1800" cy="32" r="18" fill="#fff" stroke="#1976D2" stroke-width="2" />
+    <path d="M1800 22 a10 10 0 0 1 10 10 v4 a10 10 0 0 0 2 6 l2 2 h-28 l2-2 a10 10 0 0 0 2-6 v-4 a10 10 0 0 1 10-10z" fill="#1976D2" />
+    <circle cx="1812" cy="22" r="4" fill="#E53935" />
+    <rect x="1795" y="40" width="10" height="4" rx="2" fill="#1976D2" />
+  </g>
+  <!-- Setting button (bánh răng giống project_detail) -->
+  <g id="setting-button" cursor="pointer">
+    <circle cx="1850" cy="32" r="18" fill="#fff" stroke="#1976D2" stroke-width="2" />
+    <g>
+      <circle cx="1850" cy="32" r="7" fill="#1976D2" />
+      <g stroke="#1976D2" stroke-width="2">
+        <line x1="1850" y1="17" x2="1850" y2="22" />
+        <line x1="1850" y1="42" x2="1850" y2="47" />
+        <line x1="1835" y1="32" x2="1840" y2="32" />
+        <line x1="1860" y1="32" x2="1865" y2="32" />
+        <line x1="1840.5" y1="22.5" x2="1844" y2="26" />
+        <line x1="1856" y1="38" x2="1859.5" y2="41.5" />
+        <line x1="1840.5" y1="41.5" x2="1844" y2="38" />
+        <line x1="1856" y1="26" x2="1859.5" y2="22.5" />
+      </g>
+    </g>
+  </g>
   <!-- Info Card -->
   <rect x="250" y="100" width="1620" height="180" rx="12" fill="#fff" stroke="#BDBDBD" />
   <text x="270" y="140" font-size="22" fill="#1976D2" font-family="Arial">Gói thầu: Tên gói thầu</text>
