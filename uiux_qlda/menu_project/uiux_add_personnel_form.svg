@@ -2,23 +2,28 @@
   <!-- Form thêm nhân sự (standalone) -->
   <rect x="40" y="30" width="520" height="380" rx="16" fill="#fff" stroke="#1976D2" stroke-width="2" />
   <text x="300" y="65" font-size="22" fill="#1976D2" font-family="Arial" text-anchor="middle">Thêm nhân sự dự án</text>
+  <!-- Ghi chú bắt buộc -->
+  <text x="470" y="65" font-size="12" fill="#757575" font-family="Arial">* bắt buộc</text>
   <!-- Họ và tên -->
-  <text x="70" y="120" font-size="16" fill="#212121" font-family="Arial">Họ và tên</text>
+  <text x="70" y="120" font-size="16" fill="#212121" font-family="Arial">Họ và tên *</text>
   <rect x="180" y="100" width="340" height="36" rx="6" fill="#E3F2FD" stroke="#BDBDBD" />
   <text x="190" y="125" font-size="15" fill="#757575" font-family="Arial">Chọn 1 hoặc nhiều từ CSDL nhân sự</text>
   <!-- Tổ/nhóm (dropdown) -->
-  <text x="70" y="170" font-size="16" fill="#212121" font-family="Arial">Tổ/nhóm</text>
+  <text x="70" y="170" font-size="16" fill="#212121" font-family="Arial">Tổ/nhóm *</text>
   <g>
-    <rect x="180" y="150" width="200" height="36" rx="6" fill="#E3F2FD" stroke="#BDBDBD" />
-    <text x="190" y="175" font-size="15" fill="#757575" font-family="Arial">Dropdown: Tổ chuyên gia, ...</text>
-    <polygon points="360,165 375,165 367.5,180" fill="#757575" />
+    <!-- Theo style dropdown trong package_form: nền #F5F5F5, viền xanh #1976D2, stroke-width=2 -->
+    <rect x="180" y="150" width="200" height="36" rx="6" fill="#F5F5F5" stroke="#1976D2" stroke-width="2" />
+    <text x="190" y="175" font-size="15" fill="#757575" font-family="Arial">Chọn tổ/nhóm</text>
+    <!-- Mũi tên màu #1976D2 -->
+    <polygon points="360,165 375,165 367.5,180" fill="#1976D2" />
   </g>
   <!-- Vai trò (dropdown) -->
-  <text x="70" y="220" font-size="16" fill="#212121" font-family="Arial">Vai trò</text>
+  <text x="70" y="220" font-size="16" fill="#212121" font-family="Arial">Vai trò *</text>
   <g>
-    <rect x="180" y="200" width="200" height="36" rx="6" fill="#E3F2FD" stroke="#BDBDBD" />
-    <text x="190" y="225" font-size="15" fill="#757575" font-family="Arial">Dropdown: Tổ trưởng, ...</text>
-    <polygon points="360,215 375,215 367.5,230" fill="#757575" />
+    <!-- Theo style dropdown trong package_form -->
+    <rect x="180" y="200" width="200" height="36" rx="6" fill="#F5F5F5" stroke="#1976D2" stroke-width="2" />
+    <text x="190" y="225" font-size="15" fill="#757575" font-family="Arial">Chọn vai trò</text>
+    <polygon points="360,215 375,215 367.5,230" fill="#1976D2" />
   </g>
   <!-- Phòng ban -->
   <text x="70" y="270" font-size="16" fill="#212121" font-family="Arial">Phòng ban</text>

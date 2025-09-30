@@ -103,6 +103,169 @@
 - Danh sách hợp đồng: bảng, filter
 - Form thêm/sửa: nhập liệu, upload file
 - Trang chi tiết: thông tin, tiến độ, lịch sử thanh toán
+- Form cập nhật hợp đồng & tiến độ cho giai đoạn "Ký hợp đồng" (SVG: `uiux_qlda/menu_project/uiux_contract_edit_form.svg`)
+  - Hiển thị khi người dùng nhấn nút "Chỉnh sửa" tại giai đoạn "Ký hợp đồng" trong tab Tiến độ của `project_detail` hoặc khi chuyển trạng thái sang "Đã hoàn thành" mà thiếu thông tin.
+  - Trường bắt buộc của hợp đồng: Tên hợp đồng (mặc định theo tên gói thầu), Số hợp đồng, Ngày ký hợp đồng, Ngày hiệu lực hợp đồng, Thời gian thực hiện (tháng), Giá trị hợp đồng (nhập số + dropdown đơn vị VND/USD), Nhà thầu (textbox search + gợi ý), Số đợt thanh toán (nhập số ≥ 1).
+  - Trường tự động: Ngày hết hiệu lực = Ngày hiệu lực + Thời gian thực hiện; Loại hợp đồng lấy tự động từ CSDL (readonly).
+  - Nhóm Tiến độ: Dropdown Trạng thái gồm: Chưa thực hiện, Đang thực hiện, Đã hoàn thành, Huỷ thực hiện.
+    - Quy tắc: Muốn chuyển từ "Chưa thực hiện" sang "Đang thực hiện" phải nhập "Ngày bắt đầu" và "Ngày kết thúc".
+    - Khi chọn trạng thái "Đã hoàn thành" thì bắt buộc nhập "Ngày hoàn thành".
+    - "Chi tiết tiến độ" là trường không bắt buộc.
+
+### 5.4. Đồng bộ dữ liệu thật (Tab "Thông tin hợp đồng" của gói thầu)
+- API khuyến nghị:
+  - GET `GET /api/packages/{id}/contract` → trả về thông tin hợp đồng của gói thầu
+  - POST/PUT `POST /api/packages/{id}/contract` | `PUT /api/contracts/{id}` → lưu/cập nhật khi user hoàn tất form "Ký hợp đồng"
+- JSON mẫu (response GET /api/packages/{id}/contract):
+```json
+{
+  "packageId": "PKG-001",
+  "name": "Tên gói thầu", // Dùng hiển thị cho "Tên hợp đồng"
+  "number": "HD-2025/001",
+  "signedDate": "2025-05-23",
+  "effectiveDate": "2025-05-23",
+  "durationMonths": 36,
+  "expireDate": "2028-05-23",
+  "value": 1800000000,
+  "currency": "VND", // hoặc USD
+  "bidderId": "NT-XYZ",
+  "bidderName": "Tổng công ty Xây dựng XYZ",
+  "type": "Trọn gói",
+  "paymentInstallments": 6
+}
+```
+- Mapping hiển thị (readonly ở tab):
+  - Tên hợp đồng = contract.name (lấy theo tên gói thầu) → không kèm số HĐ
+  - Số hợp đồng = contract.number
+  - Ngày ký = contract.signedDate (format dd/MM/yyyy)
+  - Loại hợp đồng = contract.type
+  - Ngày hiệu lực = contract.effectiveDate (format dd/MM/yyyy)
+  - Thời gian (tháng) = contract.durationMonths
+  - Ngày hết hiệu lực = contract.expireDate (format dd/MM/yyyy), tính tự động từ effectiveDate + durationMonths khi lưu
+  - Giá trị hợp đồng + đơn vị = contract.value + contract.currency
+  - Nhà thầu = contract.bidderName
+  - Số đợt thanh toán = contract.paymentInstallments
+
+### 5.5. Quy tắc định dạng & xử lý hiển thị
+- Định dạng ngày:
+  - Input/Output chuẩn: dd/MM/yyyy. Khi nhận ISO-8601 từ API (YYYY-MM-DD), hiển thị dưới dạng dd/MM/yyyy.
+- Định dạng tiền:
+  - VND: phân tách nghìn bằng dấu chấm, không phần thập phân: ví dụ 1.800.000.000 VND
+  - USD: phân tách nghìn bằng dấu phẩy, tối đa 2 chữ số thập phân: ví dụ 1,234,567.89 USD
+- Xử lý tên gói thầu/"Tên hợp đồng" dài:
+  - Cho phép tự xuống dòng (wrap) thay vì cắt bớt (ellipsis). Trên web, dùng CSS: `white-space: normal; word-break: break-word;`.
+
+### 5.6. Tab "Thanh toán" của gói thầu
+- Mục tiêu: quản lý các đợt thanh toán theo "Số đợt thanh toán" đã khai báo trong hợp đồng.
+- (Cập nhật) Khi hiển thị bảng cần phân biệt rõ:
+  - Trạng thái = `Chưa thanh toán` (PENDING): cột "Ngày thanh toán", "Giá trị (VND)" hiển thị giá trị DỰ KIẾN (planned).
+  - Trạng thái = `Đã thanh toán` (PAID): cột "Ngày thanh toán", "Giá trị (VND)" hiển thị giá trị THỰC TẾ (actual) đã được xác nhận.
+- Yêu cầu nhập bắt buộc khi thêm/cập nhật 1 đợt ở chế độ dự kiến:
+  - Đợt (auto: Đợt 1, Đợt 2, ...), Ngày thanh toán dự kiến (plannedPayDate), Giá trị dự kiến (plannedAmount), Trạng thái, Hồ sơ thanh toán (có thể cho phép tải trước hoặc bắt buộc sau), (Số chứng từ chỉ bắt buộc khi trạng thái chuyển sang Đã thanh toán), Ghi chú (không bắt buộc).
+- Ràng buộc tổng quan:
+  - Tổng giá trị (dùng actualAmount nếu đã paid; nếu chưa thì dùng plannedAmount) của tất cả đợt ≤ Giá trị hợp đồng.
+  - Khi trạng thái chuyển sang "Đã thanh toán" phải có: Ngày thanh toán thực tế (actualPayDate), Giá trị thanh toán thực tế (actualAmount), Số chứng từ (voucherNo), Ít nhất 1 file Hồ sơ thanh toán.
+- Thêm cột "Hành động" (View | Edit | Delete) trong bảng (SVG cập nhật: `uiux_package_detail_payment.svg`).
+- Modal chuyển trạng thái sang "Đã thanh toán": SVG `uiux_package_payment_update_form.svg`.
+- Modal chỉnh sửa lại (re-open) sau khi đã thanh toán: SVG `uiux_package_payment_update_form_reopen.svg`.
+- Trạng thái hiển thị sau khi đã thanh toán (style hàng màu nhấn / trạng thái xanh): SVG `uiux_package_detail_payment_paid_state.svg`.
+
+#### 5.6.1. Phân tách dữ liệu dự kiến & thực tế (Model đề xuất)
+| Trường | Mô tả |
+|--------|-------|
+| plannedPayDate | Ngày dự kiến thanh toán ban đầu |
+| plannedAmount | Giá trị dự kiến thanh toán |
+| actualPayDate | Ngày thanh toán thực tế (null nếu chưa) |
+| actualAmount | Giá trị thanh toán thực tế (null nếu chưa) |
+| status | PENDING hoặc PAID |
+| voucherNo | Bắt buộc khi PAID |
+| attachments | Danh sách file đính kèm (>=1 khi PAID) |
+| note | Ghi chú tuỳ chọn |
+
+Hiển thị bảng:
+- Cột Ngày thanh toán = (status==PAID ? actualPayDate : plannedPayDate)
+- Cột Giá trị (VND) = (status==PAID ? actualAmount : plannedAmount)
+- Cột Tỷ lệ (%) = (status==PAID ? actualAmount : plannedAmount) / contract.value * 100 (round 2)
+
+#### 5.6.2. Flow chuyển trạng thái
+1. User đổi dropdown trạng thái dòng từ PENDING → PAID.
+2. Frontend chặn thay đổi trực tiếp, bật modal `uiux_package_payment_update_form.svg`.
+3. User nhập đủ 4 trường bắt buộc: actualPayDate, actualAmount (>0), voucherNo, attachments≥1.
+4. Validate tổng mới (tổng actual cho các dòng PAID + planned/actual của dòng hiện tại ≤ contract.value).
+5. Gửi API cập nhật: PUT /api/payments/{id} kèm trường actual*. BE set status=PAID.
+6. Thành công → cập nhật lại bảng (row cập nhật; style status xanh #2E7D32; hiển thị text "Đã đính kèm (n)" nếu muốn).
+7. Re-open edit (icon Edit ở hàng PAID) → mở modal `uiux_package_payment_update_form_reopen.svg` (prefill actual data).
+
+#### 5.6.3. Delete / Edit ràng buộc
+- Không cho xoá đợt đã thanh toán (status=PAID) (có thể mở rộng logic rollback kèm quyền đặc biệt).
+- Sửa đợt PAID: Cho phép chỉnh Số chứng từ, ghi chú, bổ sung/xoá file, (tuỳ chính sách có cho sửa actualAmount hay không – nếu sửa phải re-validate tổng và ghi Audit Log).
+- Sửa đợt PENDING: Cho phép đổi plannedPayDate, plannedAmount, note.
+
+#### 5.6.4. Icon Hành động
+- View: mở panel hoặc popup hiển thị chi tiết + danh sách file.
+- Edit: logic như mô tả (phụ thuộc trạng thái).
+- Delete: confirm trước khi xoá (nếu PENDING).
+
+### 5.8. Frontend - Hướng dẫn triển khai tab Thanh toán & helpers (Cập nhật)
+...existing code...
+- Thêm helpers:
+  - `computeDisplayDate(payment)` → return actualPayDate || plannedPayDate.
+  - `computeDisplayAmount(payment)` → return actualAmount || plannedAmount.
+  - `computeRatio(payment, contractValue)` → round( computeDisplayAmount(payment)/contractValue * 100, 2 ).
+- State chuyển đổi:
+  - Tách form validation cho planned vs actual.
+  - Modal Submit disable nếu thiếu bất kỳ trường bắt buộc ở chế độ xác nhận thực tế.
+
+### 5.9. Backend - Payments API (Cập nhật model & validation)
+...existing code...
+Model mới gợi ý:
+```json
+{
+  "id": "PM-001",
+  "contractId": "CT-001",
+  "installmentNo": 1,
+  "plannedPayDate": "2025-10-01",
+  "plannedAmount": 300000000,
+  "actualPayDate": "2025-10-15",
+  "actualAmount": 300000000,
+  "status": "PENDING|PAID",
+  "voucherNo": "PT-0002",
+  "note": "Đợt bảo hành",
+  "attachments": [
+    { "id": "DOC-1", "name": "hs_thanhtoan_2.pdf", "url": "/docs/..." }
+  ],
+  "createdAt": "2025-09-01T10:00:00Z",
+  "updatedAt": "2025-10-16T09:12:33Z"
+}
+```
+Validation cập nhật:
+- `plannedAmount >=0`; `actualAmount > 0` khi status=PAID.
+- Khi status=PAID: `actualPayDate` not null, `voucherNo` not blank, `attachments.length > 0`.
+- Tổng `Σ(each status==PAID ? actualAmount : plannedAmount)` ≤ contract.value.
+- Nếu cho phép điều chỉnh actualAmount sau khi PAID: ghi AuditLog (oldValue, newValue, userId, timestamp).
+
+Error codes bổ sung:
+- `MISSING_ACTUAL_FIELDS`
+- `PAYMENT_ALREADY_PAID_NO_DELETE`
+- `ACTUAL_ADJUST_EXCEEDS_CONTRACT_VALUE`
+- `INVALID_TRANSITION` (ví dụ PENDING→PAID thiếu data)
+
+### 5.9.1 Endpoint mở rộng (gợi ý)
+- `PUT /api/payments/{id}/confirm` → chuyên biệt dùng confirm thanh toán (server enforce transition & validation).
+- `PUT /api/payments/{id}/adjust` → dùng khi chỉnh sửa giá trị thực tế (có quyền). Ghi AuditLog.
+- `GET /api/payments/{id}/history` → audit lịch sử thay đổi (nếu cần trace planned vs actual).
+
+### 5.10. Tài liệu - Enum loại & mapping hành động API (Cập nhật)
+- Bổ sung loại tài liệu: `PAYMENT_SUPPORT` (hồ sơ thanh toán) nếu muốn tách với `PAYMENT_VOUCHER`.
+- Khi upload hồ sơ ở modal xác nhận thanh toán: type = `PAYMENT_SUPPORT`.
+
+### 5.11. Audit Log (Bổ sung cho thanh toán)
+- Ghi các sự kiện:
+  - CREATE_PAYMENT (planned)
+  - UPDATE_PAYMENT_PLANNED_FIELDS
+  - CONFIRM_PAYMENT_ACTUAL (chuyển PENDING→PAID)
+  - ADJUST_PAYMENT_ACTUAL
+  - ADD_PAYMENT_ATTACHMENT / REMOVE_PAYMENT_ATTACHMENT
 
 ---
 

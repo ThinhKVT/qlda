@@ -240,4 +240,26 @@ Nâng cấp màn hình danh sách dự án với các chức năng tìm kiếm n
 
 ---
 
+## 8.1 Bổ sung High-level logic Tab Thanh toán hợp đồng
+- Phân biệt 2 ngữ cảnh hiển thị:
+  - Trạng thái = "Chưa thanh toán": cột "Ngày thanh toán" và "Giá trị (VND)" thể hiện GIÁ TRỊ DỰ KIẾN.
+  - Trạng thái = "Đã thanh toán": hai cột này hiển thị GIÁ TRỊ THỰC TẾ đã xác nhận.
+- Chuyển trạng thái từ "Chưa thanh toán" → "Đã thanh toán": bật modal "Cập nhật thanh toán thực tế" yêu cầu đủ:
+  1. Ngày thanh toán thực tế
+  2. Giá trị thanh toán thực tế (> 0 và không làm tổng vượt Giá trị hợp đồng)
+  3. Số chứng từ
+  4. Ít nhất 1 file Hồ sơ thanh toán
+- Sau khi lưu modal:
+  - Cập nhật dòng: Ngày + Giá trị đổi sang thực tế, Trạng thái = Đã thanh toán, Tỷ lệ (%) tính lại = (Giá trị thực tế / Giá trị hợp đồng) * 100 (làm tròn 2 chữ số).
+  - Hồ sơ thanh toán hiển thị trạng thái đã đính kèm (có thể kèm số lượng file).
+- Cho phép mở lại (re-open) modal ở chế độ chỉnh sửa: Người dùng có thể thay đổi Giá trị (nếu logic nghiệp vụ không khoá), Số chứng từ, ghi chú và quản lý lại danh sách file (thêm / xoá). Hệ thống ghi nhận Audit Log.
+- Thêm cột "Hành động" với 3 icon chuẩn cho mỗi dòng:
+  - View (xem nhanh chi tiết / danh sách file)
+  - Edit (mở modal chỉnh sửa nếu trạng thái = Đã thanh toán hoặc cập nhật dự kiến nếu vẫn chưa)
+  - Delete (xoá bản ghi đợt – ràng buộc không xoá nếu đã thanh toán tùy quy định nghiệp vụ)
+- Ràng buộc tổng: Tổng giá trị tất cả các đợt (dự kiến hoặc thực tế) ≤ Giá trị hợp đồng.
+- Khuyến nghị lưu cả trường phân tách (nếu mở rộng): `plannedPayDate`, `plannedAmount`, `actualPayDate`, `actualAmount` để bảo toàn lịch sử dự kiến.
+
+---
+
 *File này mô tả thiết kế tổng thể (high-level design) cho hệ thống quản lý dự án mua sắm áp dụng Luật Đấu thầu Việt Nam.*

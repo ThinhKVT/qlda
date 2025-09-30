@@ -1,0 +1,162 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg" style="background:#fff">
+  <!-- MÀN HÌNH: KHO TRI THỨC (Quản lý tài liệu / biểu mẫu / quy trình) -->
+  <!-- Sidebar đồng bộ -->
+  <rect x="0" y="0" width="220" height="1080" fill="#1976D2" />
+  <text x="30" y="60" font-size="24" fill="#fff" font-family="Arial">Menu</text>
+  <!-- Dashboard (mới) -->
+  <rect x="0" y="100" width="220" height="50" fill="#1976D2" />
+  <text x="30" y="130" font-size="18" fill="#fff" font-family="Arial">Dashboard</text>
+  <g stroke="#fff" stroke-width="2" fill="none" transform="translate(8,112)">
+    <rect x="0" y="0" width="8" height="8" rx="1" />
+    <rect x="10" y="0" width="8" height="8" rx="1" />
+    <rect x="0" y="10" width="8" height="8" rx="1" />
+    <rect x="10" y="10" width="8" height="8" rx="1" />
+  </g>
+  <!-- Dự án -->
+  <rect x="0" y="150" width="220" height="50" fill="#1976D2" />
+  <text x="30" y="180" font-size="18" fill="#fff" font-family="Arial">Dự án</text>
+  <g stroke="#fff" stroke-width="2" fill="none" transform="translate(8,162)">
+    <rect x="0" y="8" width="18" height="12" rx="2" />
+    <rect x="0" y="0" width="10" height="6" rx="1" />
+  </g>
+  <!-- Hợp đồng -->
+  <rect x="0" y="200" width="220" height="50" fill="#1976D2" />
+  <text x="30" y="230" font-size="18" fill="#fff" font-family="Arial">Hợp đồng</text>
+  <g stroke="#fff" stroke-width="2" fill="none" transform="translate(8,212)">
+    <rect x="0" y="0" width="18" height="16" rx="2" />
+    <line x1="4" y1="4" x2="14" y2="4" />
+    <line x1="4" y1="8" x2="14" y2="8" />
+    <line x1="4" y1="12" x2="10" y2="12" />
+  </g>
+  <!-- Nhà thầu -->
+  <rect x="0" y="250" width="220" height="50" fill="#1976D2" />
+  <text x="30" y="280" font-size="18" fill="#fff" font-family="Arial">Nhà thầu</text>
+  <g stroke="#fff" stroke-width="2" fill="none" transform="translate(8,262)">
+    <circle cx="6" cy="6" r="5" />
+    <circle cx="14" cy="10" r="4" />
+    <path d="M1 16 q5-4 10 0" />
+  </g>
+  <!-- Kho tri thức (active) -->
+  <rect x="0" y="300" width="220" height="50" fill="#1565C0" />
+  <text x="30" y="330" font-size="18" fill="#fff" font-family="Arial">Kho tri thức</text>
+  <g stroke="#fff" stroke-width="2" fill="none" transform="translate(8,312)">
+    <rect x="0" y="0" width="18" height="16" rx="2" />
+    <line x1="6" y1="0" x2="6" y2="16" />
+  </g>
+  <!-- Topbar -->
+  <rect x="220" y="0" width="1700" height="64" fill="#2196F3" />
+  <text x="250" y="40" font-size="24" fill="#fff" font-family="Arial">Kho tri thức</text>
+  <g id="notification-button">
+    <circle cx="1800" cy="32" r="18" fill="#fff" stroke="#1976D2" stroke-width="2" />
+    <path d="M1792 36 Q1800 20 1808 36" stroke="#1976D2" stroke-width="2" fill="none" />
+    <circle cx="1800" cy="38" r="3" fill="#1976D2" />
+  </g>
+  <g id="setting-button">
+    <circle cx="1850" cy="32" r="18" fill="#fff" stroke="#1976D2" stroke-width="2" />
+    <circle cx="1850" cy="32" r="7" fill="none" stroke="#1976D2" stroke-width="2" />
+    <rect x="1847" y="25" width="6" height="14" rx="2" fill="#1976D2" />
+  </g>
+  <!-- Ghi chú mô tả -->
+  <text x="250" y="80" font-size="12" fill="#757575" font-family="Arial">* Tài liệu dùng chung: quản lý vòng đời ban hành, hiệu lực, phiên bản.</text>
+  <!-- Filter chỉnh sửa -->
+  <g id="kb-filters-new">
+    <rect x="250" y="95" width="1620" height="60" rx="12" fill="#fff" stroke="#BDBDBD" />
+    <!-- Từ khóa -->
+    <text x="270" y="115" font-size="11" fill="#212121" font-family="Arial">Từ khóa</text>
+    <rect x="270" y="120" width="280" height="28" rx="6" fill="#F5F5F5" stroke="#BDBDBD" />
+    <text x="282" y="139" font-size="12" fill="#757575" font-family="Arial">Nhập tên, số / ký hiệu...</text>
+    <!-- Loại tài liệu dropdown -->
+    <text x="570" y="115" font-size="11" fill="#212121" font-family="Arial">Loại tài liệu</text>
+    <rect x="570" y="120" width="210" height="28" rx="6" fill="#F5F5F5" stroke="#1976D2" />
+    <text x="582" y="139" font-size="12" fill="#1976D2" font-family="Arial">Chọn: Quy trình, Biểu mẫu...</text>
+    <polygon points="764,128 772,128 768,136" fill="#1976D2" />
+    <!-- Ngày ban hành từ / đến -->
+    <text x="800" y="115" font-size="11" fill="#212121" font-family="Arial">Ban hành từ</text>
+    <rect x="800" y="120" width="130" height="28" rx="6" fill="#F5F5F5" stroke="#BDBDBD" />
+    <text x="810" y="139" font-size="11" fill="#757575" font-family="Arial">dd/mm/yyyy</text>
+    <text x="940" y="115" font-size="11" fill="#212121" font-family="Arial">đến</text>
+    <rect x="940" y="120" width="130" height="28" rx="6" fill="#F5F5F5" stroke="#BDBDBD" />
+    <text x="950" y="139" font-size="11" fill="#757575" font-family="Arial">dd/mm/yyyy</text>
+    <!-- Trạng thái dropdown -->
+    <text x="1080" y="115" font-size="11" fill="#212121" font-family="Arial">Trạng thái</text>
+    <rect x="1080" y="120" width="180" height="28" rx="6" fill="#F5F5F5" stroke="#1976D2" />
+    <text x="1092" y="139" font-size="12" fill="#1976D2" font-family="Arial">Chọn: Còn hiệu lực...</text>
+    <polygon points="1248,128 1256,128 1252,136" fill="#1976D2" />
+    <!-- Buttons -->
+    <rect x="1275" y="120" width="90" height="28" rx="6" fill="#1976D2" />
+    <text x="1320" y="139" font-size="12" fill="#fff" font-family="Arial" text-anchor="middle">Tìm</text>
+    <rect x="1375" y="120" width="80" height="28" rx="6" fill="#BDBDBD" />
+    <text x="1415" y="139" font-size="12" fill="#fff" font-family="Arial" text-anchor="middle">Clear</text>
+    <rect x="1470" y="120" width="130" height="28" rx="6" fill="#43A047" />
+    <text x="1535" y="139" font-size="12" fill="#fff" font-family="Arial" text-anchor="middle">+ Thêm tài liệu</text>
+  </g>
+  <!-- Header bảng mới (bỏ Tải về / Xem nhanh) -->
+  <rect x="250" y="170" width="1620" height="38" fill="#E3F2FD" />
+  <text x="270" y="193" font-size="12" fill="#1976D2" font-family="Arial">STT</text>
+  <text x="310" y="193" font-size="12" fill="#1976D2" font-family="Arial">Tên tài liệu</text>
+  <text x="620" y="193" font-size="12" fill="#1976D2" font-family="Arial">Loại</text>
+  <text x="700" y="193" font-size="12" fill="#1976D2" font-family="Arial">Số/Ký hiệu</text>
+  <text x="830" y="193" font-size="12" fill="#1976D2" font-family="Arial">Ngày ban hành</text>
+  <text x="980" y="193" font-size="12" fill="#1976D2" font-family="Arial">Ngày hiệu lực</text>
+  <text x="1120" y="193" font-size="12" fill="#1976D2" font-family="Arial">Ngày hết HL</text>
+  <text x="1250" y="193" font-size="12" fill="#1976D2" font-family="Arial">Trạng thái</text>
+  <text x="1370" y="193" font-size="12" fill="#1976D2" font-family="Arial">Ưa thích</text>
+  <text x="1440" y="193" font-size="12" fill="#1976D2" font-family="Arial">Hành động</text>
+  <!-- Row 1 cập nhật -->
+  <rect x="250" y="208" width="1620" height="42" fill="#fff" stroke="#E0E0E0" />
+  <text x="270" y="233" font-size="12" fill="#212121" font-family="Arial">1</text>
+  <text x="310" y="233" font-size="12" fill="#212121" font-family="Arial">Quy trình nghiệm thu phần mềm</text>
+  <text x="620" y="233" font-size="12" fill="#212121" font-family="Arial">Quy trình</text>
+  <text x="700" y="233" font-size="12" fill="#212121" font-family="Arial">QTNTPM-01</text>
+  <text x="830" y="233" font-size="12" fill="#212121" font-family="Arial">05/09/2025</text>
+  <text x="980" y="233" font-size="12" fill="#212121" font-family="Arial">05/09/2025</text>
+  <text x="1120" y="233" font-size="12" fill="#212121" font-family="Arial">05/09/2027</text>
+  <rect x="1250" y="219" width="90" height="18" rx="9" fill="#388E3C" />
+  <text x="1295" y="232" font-size="10" fill="#fff" font-family="Arial" text-anchor="middle">Còn hiệu lực</text>
+  <g transform="translate(1360,218)" cursor="pointer">
+    <polygon points="12,2 15,9 22,9 16.5,13.5 18.5,21 12,16.8 5.5,21 7.5,13.5 2,9 9,9" fill="#FBC02D" stroke="#F9A825" />
+  </g>
+  <text x="1440" y="233" font-size="12" fill="#1976D2" font-family="Arial">Xem | Tải | Sửa | Phiên bản | Xoá</text>
+  <!-- Row 2 cập nhật -->
+  <rect x="250" y="250" width="1620" height="42" fill="#FAFAFA" stroke="#E0E0E0" />
+  <text x="270" y="275" font-size="12" fill="#212121" font-family="Arial">2</text>
+  <text x="310" y="275" font-size="12" fill="#212121" font-family="Arial">Mẫu biên bản nghiệm thu giai đoạn</text>
+  <text x="620" y="275" font-size="12" fill="#212121" font-family="Arial">Biểu mẫu</text>
+  <text x="700" y="275" font-size="12" fill="#212121" font-family="Arial">MBNTPM-02</text>
+  <text x="830" y="275" font-size="12" fill="#212121" font-family="Arial">01/09/2024</text>
+  <text x="980" y="275" font-size="12" fill="#212121" font-family="Arial">01/09/2024</text>
+  <text x="1120" y="275" font-size="12" fill="#212121" font-family="Arial">25/09/2025</text>
+  <rect x="1250" y="261" width="110" height="18" rx="9" fill="#FBC02D" />
+  <text x="1305" y="274" font-size="10" fill="#212121" font-family="Arial" text-anchor="middle">Sắp hết hiệu lực</text>
+  <g transform="translate(1360,260)" cursor="pointer">
+    <polygon points="12,2 15,9 22,9 16.5,13.5 18.5,21 12,16.8 5.5,21 7.5,13.5 2,9 9,9" fill="none" stroke="#F9A825" />
+  </g>
+  <text x="1440" y="275" font-size="12" fill="#1976D2" font-family="Arial">Xem | Tải | Sửa | Phiên bản | Xoá</text>
+  <!-- Row 3 cập nhật -->
+  <rect x="250" y="292" width="1620" height="42" fill="#fff" stroke="#E0E0E0" />
+  <text x="270" y="317" font-size="12" fill="#212121" font-family="Arial">3</text>
+  <text x="310" y="317" font-size="12" fill="#212121" font-family="Arial">Hướng dẫn bảo trì phiên bản cũ</text>
+  <text x="620" y="317" font-size="12" fill="#212121" font-family="Arial">Hướng dẫn</text>
+  <text x="700" y="317" font-size="12" fill="#212121" font-family="Arial">HDKT-07</text>
+  <text x="830" y="317" font-size="12" fill="#212121" font-family="Arial">15/03/2022</text>
+  <text x="980" y="317" font-size="12" fill="#212121" font-family="Arial">15/03/2022</text>
+  <text x="1120" y="317" font-size="12" fill="#212121" font-family="Arial">15/03/2024</text>
+  <rect x="1250" y="303" width="90" height="18" rx="9" fill="#D32F2F" />
+  <text x="1295" y="316" font-size="10" fill="#fff" font-family="Arial" text-anchor="middle">Hết hiệu lực</text>
+  <g transform="translate(1360,302)" cursor="pointer">
+    <polygon points="12,2 15,9 22,9 16.5,13.5 18.5,21 12,16.8 5.5,21 7.5,13.5 2,9 9,9" fill="none" stroke="#BDBDBD" />
+  </g>
+  <text x="1440" y="317" font-size="12" fill="#1976D2" font-family="Arial">Xem | Tải | Sửa | Phiên bản | Xoá</text>
+  <!-- Legend trạng thái (giữ) -->
+  <g id="kb-legend">
+    <rect x="250" y="350" width="12" height="12" rx="3" fill="#388E3C" />
+    <text x="268" y="360" font-size="11" fill="#212121" font-family="Arial">Còn hiệu lực</text>
+    <rect x="360" y="350" width="12" height="12" rx="3" fill="#FBC02D" />
+    <text x="378" y="360" font-size="11" fill="#212121" font-family="Arial">Sắp hết hiệu lực</text>
+    <rect x="520" y="350" width="12" height="12" rx="3" fill="#D32F2F" />
+    <text x="538" y="360" font-size="11" fill="#212121" font-family="Arial">Hết hiệu lực</text>
+    <text x="650" y="360" font-size="11" fill="#757575" font-family="Arial">⭐ = ưa thích</text>
+  </g>
+  <text x="250" y="380" font-size="11" fill="#757575" font-family="Arial">* Hành động "Tải" sẽ tải xuống phiên bản mới nhất; "Xem" là xem nhanh.</text>
+  <!-- COMMENT: Dropdown giá trị Loại tài liệu = {Quy trình, Biểu mẫu, Hướng dẫn, Phân cấp uỷ quyền, Luật, Nghị định, Thông tư}; Trạng thái = {Còn hiệu lực, Hết hiệu lực} -->
+</svg>

@@ -1,0 +1,140 @@
+<svg width="1400" height="880" xmlns="http://www.w3.org/2000/svg" style="background:#fff">
+  <!-- POPUP CHI TIẾT NHÀ THẦU -->
+  <rect x="40" y="30" width="1320" height="820" rx="28" fill="#FFFFFF" stroke="#1565C0" stroke-width="3" />
+  <text x="700" y="70" font-size="26" fill="#1565C0" font-family="Arial" text-anchor="middle">Chi tiết nhà thầu</text>
+  <rect x="1280" y="46" width="56" height="32" rx="10" fill="#BDBDBD" />
+  <text x="1308" y="68" font-size="14" fill="#fff" font-family="Arial" text-anchor="middle">Đóng</text>
+
+  <!-- THÔNG TIN CƠ BẢN -->
+  <text x="70" y="110" font-size="15" fill="#1565C0" font-family="Arial">I. Thông tin cơ bản</text>
+  <text x="70" y="135" font-size="13" fill="#212121" font-family="Arial">Tên đầy đủ:</text>
+  <text x="170" y="135" font-size="13" fill="#212121" font-family="Arial">Công ty Cổ phần Công nghệ XYZ</text>
+  <text x="70" y="155" font-size="13" fill="#212121" font-family="Arial">Tên viết tắt:</text>
+  <text x="170" y="155" font-size="13" fill="#212121" font-family="Arial">XYZ</text>
+  <text x="400" y="135" font-size="13" fill="#212121" font-family="Arial">Mã số thuế:</text>
+  <text x="480" y="135" font-size="13" fill="#212121" font-family="Arial">0101234567</text>
+  <text x="400" y="155" font-size="13" fill="#212121" font-family="Arial">Website:</text>
+  <text x="470" y="155" font-size="13" fill="#1976D2" font-family="Arial">https://xyz.com</text>
+  <text x="70" y="175" font-size="13" fill="#212121" font-family="Arial">Địa chỉ:</text>
+  <text x="140" y="175" font-size="13" fill="#212121" font-family="Arial">Số 1 Trần Duy Hưng, Cầu Giấy, Hà Nội</text>
+  <text x="70" y="195" font-size="13" fill="#212121" font-family="Arial">Lĩnh vực chính:</text>
+  <text x="170" y="195" font-size="13" fill="#212121" font-family="Arial">Phát triển phần mềm, Tư vấn CNTT</text>
+  <text x="70" y="215" font-size="13" fill="#212121" font-family="Arial">Năng lực / Chứng chỉ:</text>
+  <text x="220" y="215" font-size="13" fill="#212121" font-family="Arial">ISO 27001, CMMI level 3, DevSecOps Practice</text>
+
+  <!-- THỐNG KÊ TỔNG HỢP -->
+  <text x="70" y="250" font-size="15" fill="#1565C0" font-family="Arial">II. Thống kê hợp đồng</text>
+  <rect x="70" y="260" width="1220" height="90" rx="16" fill="#F5F5F5" stroke="#E0E0E0" />
+  <text x="90" y="290" font-size="12" fill="#757575" font-family="Arial">HĐ đang thực hiện</text>
+  <text x="90" y="314" font-size="20" fill="#1565C0" font-family="Arial">3</text>
+  <text x="220" y="290" font-size="12" fill="#757575" font-family="Arial">HĐ đã hoàn thành</text>
+  <text x="220" y="314" font-size="20" fill="#1565C0" font-family="Arial">5</text>
+  <text x="380" y="290" font-size="12" fill="#757575" font-family="Arial">Tổng giá trị đã ký (VND)</text>
+  <text x="380" y="314" font-size="20" fill="#1565C0" font-family="Arial">540.000.000.000</text>
+  <text x="640" y="290" font-size="12" fill="#757575" font-family="Arial">Giá trị đang thực hiện (VND)</text>
+  <text x="640" y="314" font-size="20" fill="#1565C0" font-family="Arial">120.000.000.000</text>
+  <text x="900" y="290" font-size="12" fill="#757575" font-family="Arial">Tỷ lệ hoàn thành đúng hạn</text>
+  <text x="900" y="314" font-size="20" fill="#1565C0" font-family="Arial">87%</text>
+  <text x="1110" y="290" font-size="12" fill="#757575" font-family="Arial">Chỉ số rủi ro (đề xuất)</text>
+  <text x="1110" y="314" font-size="20" fill="#D32F2F" font-family="Arial">Low</text>
+
+  <!-- DANH SÁCH HĐ ĐANG THỰC HIỆN -->
+  <text x="70" y="370" font-size="15" fill="#1565C0" font-family="Arial">III. Hợp đồng đang thực hiện (3)</text>
+  <rect x="70" y="380" width="1220" height="34" fill="#E3F2FD" />
+  <text x="80" y="402" font-size="12" fill="#1565C0" font-family="Arial">Số HĐ</text>
+  <text x="180" y="402" font-size="12" fill="#1565C0" font-family="Arial">Tên HĐ</text>
+  <text x="560" y="402" font-size="12" fill="#1565C0" font-family="Arial">Giá trị</text>
+  <text x="660" y="402" font-size="12" fill="#1565C0" font-family="Arial">% Thanh toán</text>
+  <text x="770" y="402" font-size="12" fill="#1565C0" font-family="Arial">Trạng thái</text>
+  <text x="880" y="402" font-size="12" fill="#1565C0" font-family="Arial">Ngày hết HL</text>
+  <text x="1000" y="402" font-size="12" fill="#1565C0" font-family="Arial">Cảnh báo</text>
+  <text x="1120" y="402" font-size="12" fill="#1565C0" font-family="Arial">Hành động</text>
+  <!-- Row 1 -->
+  <rect x="70" y="414" width="1220" height="40" fill="#fff" stroke="#E0E0E0" />
+  <text x="80" y="440" font-size="12" fill="#212121" font-family="Arial">HD-01/2025</text>
+  <text x="180" y="440" font-size="12" fill="#212121" font-family="Arial">Triển khai phần mềm A</text>
+  <text x="560" y="440" font-size="12" fill="#212121" font-family="Arial">1.800.000.000</text>
+  <text x="660" y="440" font-size="12" fill="#212121" font-family="Arial">60%</text>
+  <rect x="755" y="424" width="70" height="18" rx="9" fill="#388E3C" />
+  <text x="790" y="437" font-size="10" fill="#fff" font-family="Arial" text-anchor="middle">Hiệu lực</text>
+  <text x="880" y="440" font-size="12" fill="#212121" font-family="Arial">23/05/2028</text>
+  <text x="1000" y="440" font-size="12" fill="#757575" font-family="Arial">Còn 240 ngày</text>
+  <text x="1120" y="440" font-size="12" fill="#1976D2" font-family="Arial">View | Gia hạn</text>
+  <!-- Row 2 -->
+  <rect x="70" y="454" width="1220" height="40" fill="#FAFAFA" stroke="#E0E0E0" />
+  <text x="80" y="480" font-size="12" fill="#212121" font-family="Arial">HD-05/2025</text>
+  <text x="180" y="480" font-size="12" fill="#212121" font-family="Arial">Bảo trì hệ thống C</text>
+  <text x="560" y="480" font-size="12" fill="#212121" font-family="Arial">900.000.000</text>
+  <text x="660" y="480" font-size="12" fill="#212121" font-family="Arial">70%</text>
+  <rect x="755" y="464" width="90" height="18" rx="9" fill="#FBC02D" />
+  <text x="800" y="477" font-size="10" fill="#212121" font-family="Arial" text-anchor="middle">Sắp hết hạn</text>
+  <text x="880" y="480" font-size="12" fill="#212121" font-family="Arial">10/02/2026</text>
+  <text x="1000" y="480" font-size="12" fill="#F57C00" font-family="Arial">Còn 20 ngày</text>
+  <text x="1120" y="480" font-size="12" fill="#1976D2" font-family="Arial">View | Gia hạn</text>
+  <!-- Row 3 -->
+  <rect x="70" y="494" width="1220" height="40" fill="#fff" stroke="#E0E0E0" />
+  <text x="80" y="520" font-size="12" fill="#212121" font-family="Arial">HD-07/2025</text>
+  <text x="180" y="520" font-size="12" fill="#212121" font-family="Arial">Tư vấn kiến trúc D</text>
+  <text x="560" y="520" font-size="12" fill="#212121" font-family="Arial">500.000.000</text>
+  <text x="660" y="520" font-size="12" fill="#212121" font-family="Arial">15%</text>
+  <rect x="755" y="504" width="70" height="18" rx="9" fill="#388E3C" />
+  <text x="790" y="517" font-size="10" fill="#fff" font-family="Arial" text-anchor="middle">Hiệu lực</text>
+  <text x="880" y="520" font-size="12" fill="#212121" font-family="Arial">05/09/2026</text>
+  <text x="1000" y="520" font-size="12" fill="#757575" font-family="Arial">Ổn định</text>
+  <text x="1120" y="520" font-size="12" fill="#1976D2" font-family="Arial">View | Gia hạn</text>
+
+  <!-- DANH SÁCH HĐ ĐÃ HOÀN THÀNH -->
+  <text x="70" y="560" font-size="15" fill="#1565C0" font-family="Arial">IV. Hợp đồng đã hoàn thành (5)</text>
+  <rect x="70" y="570" width="1220" height="34" fill="#E3F2FD" />
+  <text x="80" y="592" font-size="12" fill="#1565C0" font-family="Arial">Số HĐ</text>
+  <text x="180" y="592" font-size="12" fill="#1565C0" font-family="Arial">Tên HĐ</text>
+  <text x="560" y="592" font-size="12" fill="#1565C0" font-family="Arial">Giá trị</text>
+  <text x="660" y="592" font-size="12" fill="#1565C0" font-family="Arial">Hoàn thành</text>
+  <text x="770" y="592" font-size="12" fill="#1565C0" font-family="Arial">Thanh lý</text>
+  <text x="880" y="592" font-size="12" fill="#1565C0" font-family="Arial">Ghi chú</text>
+  <text x="1120" y="592" font-size="12" fill="#1565C0" font-family="Arial">Hành động</text>
+  <!-- Row completed 1 -->
+  <rect x="70" y="604" width="1220" height="36" fill="#fff" stroke="#E0E0E0" />
+  <text x="80" y="626" font-size="12" fill="#212121" font-family="Arial">HD-11/2024</text>
+  <text x="180" y="626" font-size="12" fill="#212121" font-family="Arial">Triển khai ERP</text>
+  <text x="560" y="626" font-size="12" fill="#212121" font-family="Arial">12.000.000.000</text>
+  <text x="660" y="626" font-size="12" fill="#212121" font-family="Arial">20/12/2024</text>
+  <text x="770" y="626" font-size="12" fill="#212121" font-family="Arial">05/01/2025</text>
+  <text x="880" y="626" font-size="12" fill="#212121" font-family="Arial">Đúng hạn</text>
+  <text x="1120" y="626" font-size="12" fill="#1976D2" font-family="Arial">View</text>
+  <!-- Row completed 2 -->
+  <rect x="70" y="640" width="1220" height="36" fill="#FAFAFA" stroke="#E0E0E0" />
+  <text x="80" y="662" font-size="12" fill="#212121" font-family="Arial">HD-09/2024</text>
+  <text x="180" y="662" font-size="12" fill="#212121" font-family="Arial">Bảo trì hạ tầng</text>
+  <text x="560" y="662" font-size="12" fill="#212121" font-family="Arial">5.000.000.000</text>
+  <text x="660" y="662" font-size="12" fill="#212121" font-family="Arial">05/11/2024</text>
+  <text x="770" y="662" font-size="12" fill="#212121" font-family="Arial">10/12/2024</text>
+  <text x="880" y="662" font-size="12" fill="#212121" font-family="Arial">Trễ 5 ngày</text>
+  <text x="1120" y="662" font-size="12" fill="#1976D2" font-family="Arial">View</text>
+
+  <!-- ĐẦU MỐI LIÊN HỆ -->
+  <text x="70" y="690" font-size="15" fill="#1565C0" font-family="Arial">V. Đầu mối liên hệ</text>
+  <rect x="70" y="700" width="1220" height="34" fill="#E3F2FD" />
+  <text x="80" y="722" font-size="12" fill="#1565C0" font-family="Arial">Họ tên</text>
+  <text x="300" y="722" font-size="12" fill="#1565C0" font-family="Arial">Chức danh</text>
+  <text x="470" y="722" font-size="12" fill="#1565C0" font-family="Arial">Email</text>
+  <text x="740" y="722" font-size="12" fill="#1565C0" font-family="Arial">Điện thoại</text>
+  <text x="900" y="722" font-size="12" fill="#1565C0" font-family="Arial">Ghi chú</text>
+  <!-- Contact row 1 -->
+  <rect x="70" y="734" width="1220" height="38" fill="#fff" stroke="#E0E0E0" />
+  <text x="80" y="758" font-size="12" fill="#212121" font-family="Arial">Nguyễn Văn A</text>
+  <text x="300" y="758" font-size="12" fill="#212121" font-family="Arial">PM</text>
+  <text x="470" y="758" font-size="12" fill="#212121" font-family="Arial">a.nguyen@xyz.com</text>
+  <text x="740" y="758" font-size="12" fill="#212121" font-family="Arial">0900000001</text>
+  <text x="900" y="758" font-size="12" fill="#212121" font-family="Arial">Liên hệ chính</text>
+  <!-- Contact row 2 -->
+  <rect x="70" y="772" width="1220" height="38" fill="#FAFAFA" stroke="#E0E0E0" />
+  <text x="80" y="796" font-size="12" fill="#212121" font-family="Arial">Trần Thị B</text>
+  <text x="300" y="796" font-size="12" fill="#212121" font-family="Arial">Kế toán</text>
+  <text x="470" y="796" font-size="12" fill="#212121" font-family="Arial">b.tran@xyz.com</text>
+  <text x="740" y="796" font-size="12" fill="#212121" font-family="Arial">0900000002</text>
+  <text x="900" y="796" font-size="12" fill="#212121" font-family="Arial">Thu thập chứng từ</text>
+
+  <!-- GỢI Ý MỞ RỘNG -->
+  <text x="70" y="840" font-size="11" fill="#757575" font-family="Arial">Gợi ý: thêm tab KPI (chất lượng, tiến độ), lịch sử cảnh báo, hệ số rủi ro tính động, log chỉnh sửa.</text>
+</svg>

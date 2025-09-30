@@ -1,0 +1,91 @@
+<svg width="1300" height="920" xmlns="http://www.w3.org/2000/svg" style="background:#fff">
+  <!-- FORM: THÊM NHÀ THẦU -->
+  <rect x="40" y="30" width="1220" height="860" rx="24" fill="#FFFFFF" stroke="#1565C0" stroke-width="2" />
+  <text x="650" y="70" font-size="26" fill="#1565C0" font-family="Arial" text-anchor="middle">Thêm nhà thầu</text>
+  <text x="1220" y="70" font-size="11" fill="#757575" font-family="Arial" text-anchor="end">(*) Bắt buộc</text>
+
+  <!-- CỘT TRÁI (Thông tin cơ bản) -->
+  <text x="70" y="110" font-size="15" fill="#1565C0" font-family="Arial">I. Thông tin cơ bản</text>
+  <text x="70" y="140" font-size="13" fill="#212121" font-family="Arial">Tên đầy đủ *</text>
+  <rect x="70" y="150" width="500" height="40" rx="10" fill="#F5F5F5" stroke="#BDBDBD" />
+  <text x="82" y="176" font-size="13" fill="#757575" font-family="Arial">Ví dụ: Công ty Cổ phần Công nghệ XYZ</text>
+
+  <text x="70" y="205" font-size="13" fill="#212121" font-family="Arial">Tên viết tắt *</text>
+  <rect x="70" y="215" width="180" height="40" rx="10" fill="#F5F5F5" stroke="#BDBDBD" />
+  <text x="82" y="241" font-size="13" fill="#757575" font-family="Arial">XYZ</text>
+  <text x="270" y="205" font-size="13" fill="#212121" font-family="Arial">Mã số thuế *</text>
+  <rect x="270" y="215" width="300" height="40" rx="10" fill="#F5F5F5" stroke="#BDBDBD" />
+  <text x="282" y="241" font-size="13" fill="#757575" font-family="Arial">0101234567</text>
+
+  <text x="70" y="270" font-size="13" fill="#212121" font-family="Arial">Địa chỉ *</text>
+  <rect x="70" y="280" width="500" height="40" rx="10" fill="#F5F5F5" stroke="#BDBDBD" />
+  <text x="82" y="306" font-size="13" fill="#757575" font-family="Arial">Số ..., Quận ..., TP ...</text>
+
+  <text x="70" y="335" font-size="13" fill="#212121" font-family="Arial">Website</text>
+  <rect x="70" y="345" width="240" height="40" rx="10" fill="#F5F5F5" stroke="#BDBDBD" />
+  <text x="82" y="371" font-size="13" fill="#757575" font-family="Arial">https://</text>
+  <text x="330" y="335" font-size="13" fill="#212121" font-family="Arial">Lĩnh vực chính *</text>
+  <rect x="330" y="345" width="240" height="40" rx="10" fill="#F5F5F5" stroke="#1565C0" />
+  <text x="342" y="371" font-size="13" fill="#1565C0" font-family="Arial">Chọn: CNTT ...</text>
+  <polygon points="548,361 556,361 552,369" fill="#1565C0" />
+
+  <text x="70" y="400" font-size="13" fill="#212121" font-family="Arial">Năng lực / Chứng chỉ</text>
+  <rect x="70" y="410" width="500" height="90" rx="14" fill="#F5F5F5" stroke="#BDBDBD" />
+  <text x="82" y="432" font-size="12" fill="#757575" font-family="Arial">ISO 27001, CMMI level 3, ...</text>
+
+  <text x="70" y="520" font-size="13" fill="#212121" font-family="Arial">Ghi chú nội bộ</text>
+  <rect x="70" y="530" width="500" height="100" rx="14" fill="#F5F5F5" stroke="#BDBDBD" />
+
+  <!-- CỘT PHẢI (Liên hệ & Hợp đồng) -->
+  <text x="600" y="110" font-size="15" fill="#1565C0" font-family="Arial">II. Đầu mối liên hệ</text>
+  <text x="600" y="132" font-size="11" fill="#757575" font-family="Arial">Tối thiểu 1 liên hệ chính *</text>
+  <!-- Header bảng liên hệ -->
+  <rect x="600" y="150" width="640" height="34" fill="#E3F2FD" />
+  <text x="610" y="172" font-size="12" fill="#1565C0" font-family="Arial">Họ tên</text>
+  <text x="760" y="172" font-size="12" fill="#1565C0" font-family="Arial">Chức danh</text>
+  <text x="900" y="172" font-size="12" fill="#1565C0" font-family="Arial">Email</text>
+  <text x="1080" y="172" font-size="12" fill="#1565C0" font-family="Arial">Điện thoại</text>
+  <!-- Row 1 -->
+  <rect x="600" y="184" width="640" height="40" fill="#fff" stroke="#E0E0E0" />
+  <text x="610" y="210" font-size="12" fill="#212121" font-family="Arial">Nguyễn Văn A</text>
+  <text x="760" y="210" font-size="12" fill="#212121" font-family="Arial">PM</text>
+  <text x="900" y="210" font-size="12" fill="#212121" font-family="Arial">a.nguyen@xyz.com</text>
+  <text x="1080" y="210" font-size="12" fill="#212121" font-family="Arial">0900000001</text>
+  <!-- Row 2 -->
+  <rect x="600" y="224" width="640" height="40" fill="#FAFAFA" stroke="#E0E0E0" />
+  <text x="610" y="250" font-size="12" fill="#212121" font-family="Arial">Trần Thị B</text>
+  <text x="760" y="250" font-size="12" fill="#212121" font-family="Arial">Kế toán</text>
+  <text x="900" y="250" font-size="12" fill="#212121" font-family="Arial">b.tran@xyz.com</text>
+  <text x="1080" y="250" font-size="12" fill="#212121" font-family="Arial">0900000002</text>
+  <!-- Nút thêm liên hệ -->
+  <rect x="600" y="268" width="140" height="32" rx="8" fill="#1565C0" />
+  <text x="670" y="290" font-size="12" fill="#fff" font-family="Arial" text-anchor="middle">+ Thêm liên hệ</text>
+
+  <text x="600" y="330" font-size="15" fill="#1565C0" font-family="Arial">III. Tệp hồ sơ năng lực</text>
+  <rect x="600" y="345" width="640" height="120" rx="14" fill="#FAFAFA" stroke="#1565C0" stroke-dasharray="6 6" />
+  <text x="920" y="400" font-size="13" fill="#1565C0" font-family="Arial" text-anchor="middle">Kéo và thả hoặc Bấm để chọn (PDF/DOCX/ZIP)</text>
+  <text x="600" y="475" font-size="12" fill="#757575" font-family="Arial">Tệp đã chọn:</text>
+  <rect x="600" y="485" width="640" height="50" rx="10" fill="#FFFFFF" stroke="#E0E0E0" />
+  <text x="610" y="515" font-size="12" fill="#212121" font-family="Arial">1. nangluc_xyz.pdf (1.2 MB)</text>
+
+  <text x="600" y="555" font-size="15" fill="#1565C0" font-family="Arial">IV. Thống kê (tự sinh)</text>
+  <text x="600" y="575" font-size="11" fill="#757575" font-family="Arial">Cập nhật sau khi lưu và đồng bộ từ hợp đồng</text>
+  <rect x="600" y="590" width="640" height="100" rx="14" fill="#F5F5F5" stroke="#E0E0E0" />
+  <text x="620" y="615" font-size="12" fill="#212121" font-family="Arial">HĐ đang thực hiện: 0</text>
+  <text x="620" y="635" font-size="12" fill="#212121" font-family="Arial">HĐ đã hoàn thành: 0</text>
+  <text x="620" y="655" font-size="12" fill="#212121" font-family="Arial">Tổng giá trị đã ký: 0</text>
+  <text x="620" y="675" font-size="12" fill="#212121" font-family="Arial">Giá trị đang thực hiện: 0</text>
+
+  <!-- ACTION BUTTONS -->
+  <rect x="760" y="780" width="160" height="48" rx="12" fill="#1565C0" />
+  <text x="840" y="810" font-size="16" fill="#fff" font-family="Arial" text-anchor="middle">Lưu</text>
+  <rect x="930" y="780" width="220" height="48" rx="12" fill="#43A047" />
+  <text x="1040" y="810" font-size="16" fill="#fff" font-family="Arial" text-anchor="middle">Lưu và Thêm tiếp</text>
+  <rect x="1160" y="780" width="80" height="48" rx="12" fill="#BDBDBD" />
+  <text x="1200" y="810" font-size="16" fill="#fff" font-family="Arial" text-anchor="middle">Huỷ</text>
+
+  <!-- FOOTER NOTE -->
+  <text x="650" y="860" font-size="11" fill="#757575" font-family="Arial" text-anchor="middle">Dữ liệu sau khi lưu có thể được cập nhật từ đồng bộ hợp đồng. Nhấn Lưu và Thêm tiếp để nhập chuỗi nhà thầu.</text>
+
+  <!-- COMMENT: Lĩnh vực chính có thể là dropdown danh mục; có thể thêm trường Phân loại (Nhóm chiến lược / Thông thường) nếu cần. -->
+</svg>
