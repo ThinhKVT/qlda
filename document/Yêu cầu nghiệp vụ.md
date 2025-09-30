@@ -1,67 +1,59 @@
 # YÊU CẦU NGHIỆP VỤ PHẦN MỀM QUẢN LÝ DỰ ÁN MUA SẮM ÁP DỤNG LUẬT ĐẤU THẦU VIỆT NAM
+Luồng chức năng theo menu (UI/UX chốt theo SVG)
 
-## 1. Quản lý dự án (Project Management)
-- Thêm, sửa, xóa, tìm kiếm dự án.
-- Quản lý thông tin dự án: tên, mô tả, chủ đầu tư, nguồn vốn, trạng thái, tiến độ, ngày bắt đầu/kết thúc.
-- Đính kèm tài liệu dự án (quyết định phê duyệt, báo cáo...).
-- Theo dõi tiến độ tổng thể và các mốc quan trọng.
+Mục tiêu: Chuẩn hoá yêu cầu nghiệp vụ theo các luồng người dùng thực tế trên giao diện đã chốt. Mỗi luồng bên dưới tham chiếu trực tiếp tới các file SVG thiết kế trong thư mục `uiux_qlda/`.
 
-## 2. Quản lý gói thầu (Procurement Package Management)
-- Thêm, sửa, xóa, tìm kiếm gói thầu thuộc dự án.
-- Quản lý thông tin gói thầu: tên, loại gói thầu, giá trị, hình thức lựa chọn nhà thầu, trạng thái, ngày phát hành HSMT, ngày mở thầu, ngày ký hợp đồng.
-- Đính kèm tài liệu gói thầu (HSMT, biên bản mở thầu...).
-- Theo dõi tiến độ từng gói thầu.
+### 15.1. Menu Dự án
+- Danh sách dự án: hiển thị theo bố cục và cột đúng như SVG.
+  - Màn hình: `uiux_project_list.svg`
+  - Ảnh tham chiếu: <img src="../uiux_qlda/menu_project/uiux_project_list.svg" alt="Project List" width="900"/>
+- Thêm mới dự án: nhấn "Thêm mới" mở popup form.
+  - Popup: `uiux_project_form.svg`
+  - Ảnh tham chiếu: <img src="../uiux_qlda/menu_project/uiux_project_form.svg" alt="Project Form" width="650"/>
+- Tìm kiếm nâng cao: nhấn "Tìm kiếm nâng cao" mở popup.
+  - Popup: `uiux_project_advanced_search_popup.svg`
+  - Ảnh tham chiếu: <img src="../uiux_qlda/menu_project/uiux_project_advanced_search_popup.svg" alt="Advanced Search" width="650"/>
+- Xem chi tiết dự án: click hành động "Xem" hoặc tên dự án.
+  - Mặc định mở tab "Tiến độ". Ở mỗi bản ghi giai đoạn có nút "Chỉnh sửa" mở popup chỉnh sửa.
+  - Riêng giai đoạn "Ký hợp đồng": nhấn "Chỉnh sửa" mở popup `uiux_contract_edit_form.svg`.
+  - Màn hình chi tiết: <img src="../uiux_qlda/menu_project/uiux_project_detail.svg" alt="Project Detail" width="900"/>
+  - Popup hợp đồng: <img src="../uiux_qlda/menu_project/uiux_contract_edit_form.svg" alt="Contract Edit Form" width="700"/>
+- Tab "Gói thầu": mở danh sách gói thầu thuộc dự án.
+  - Màn hình: `uiux_package_list.svg` → <img src="../uiux_qlda/menu_project/uiux_package_list.svg" alt="Package List" width="900"/>
+  - "Thêm gói thầu": mở `uiux_package_form.svg` → <img src="../uiux_qlda/menu_project/uiux_package_form.svg" alt="Package Form" width="650"/>
+  - Hành động "Xem": mở `uiux_package_detail.svg` (mặc định tab "Thông tin hợp đồng").
+    - <img src="../uiux_qlda/menu_project/uiux_package_detail.svg" alt="Package Detail" width="900"/>
+    - Tab "Thanh toán": `uiux_package_detail_payment.svg` → <img src="../uiux_qlda/menu_project/uiux_package_detail_payment.svg" alt="Package Payment" width="900"/>
+      - "Thêm đợt": tự động thêm 1 bản ghi mới với số đợt tăng dần.
+      - "Sinh theo số đợt": tự động sinh các đợt theo số đợt thanh toán khai báo ở tab Thông tin hợp đồng.
+      - "Chỉnh sửa" lần đầu: mở `uiux_package_payment_update_form.svg` → <img src="../uiux_qlda/menu_project/uiux_package_payment_update_form.svg" alt="Payment Update Form" width="650"/>
+      - "Chỉnh sửa" từ lần 2: mở `uiux_package_payment_update_form_reopen.svg` → <img src="../uiux_qlda/menu_project/uiux_package_payment_update_form_reopen.svg" alt="Payment Update Form Reopen" width="650"/>
+      - Trạng thái sau khi đã thanh toán: thể hiện như `uiux_package_detail_payment_paid_state.svg` → <img src="../uiux_qlda/menu_project/uiux_package_detail_payment_paid_state.svg" alt="Payment Paid State" width="900"/>
+    - Tab "Tài liệu": `uiux_package_detail_documents.svg` → <img src="../uiux_qlda/menu_project/uiux_package_detail_documents.svg" alt="Package Documents" width="900"/>
+- Tab "Nhân sự": `uiux_project_personnel.svg` → <img src="../uiux_qlda/menu_project/uiux_project_personnel.svg" alt="Project Personnel" width="900"/>
+  - "Thêm nhân sự": `uiux_add_personnel_form.svg` → <img src="../uiux_qlda/menu_project/uiux_add_personnel_form.svg" alt="Add Personnel Form" width="650"/>
+- Tab "Tài liệu": `uiux_project_document.svg` → <img src="../uiux_qlda/menu_project/uiux_project_document.svg" alt="Project Document" width="900"/>
+- Tab "Quyết toán": `uiux_project_settlement.svg` → <img src="../uiux_qlda/menu_project/uiux_project_settlement.svg" alt="Project Settlement" width="900"/>
+  - "Sửa": `uiux_project_settlement_edit_popup.svg` → <img src="../uiux_qlda/menu_project/uiux_project_settlement_edit_popup.svg" alt="Settlement Edit" width="650"/>
+  - "Upload": `uiux_project_settlement_upload_popup.svg` → <img src="../uiux_qlda/menu_project/uiux_project_settlement_upload_popup.svg" alt="Settlement Upload" width="650"/>
 
-## 3. Quản lý nhà thầu (Bidder Management)
-- Thêm, sửa, xóa, tìm kiếm nhà thầu.
-- Quản lý thông tin nhà thầu: tên, liên hệ, năng lực, lịch sử tham gia, trạng thái dự thầu.
-- Theo dõi quá trình tham gia thầu của từng nhà thầu.
+### 15.2. Menu Hợp đồng
+- Click menu Hợp đồng: hiển thị danh sách hợp đồng `uiux_contract_list.svg` → <img src="../uiux_qlda/menu_hopdong/uiux_contract_list.svg" alt="Contract List" width="900"/>
+- Hành động "Xem": mở popup `uiux_package_contract_info.svg` → <img src="../uiux_qlda/menu_hopdong/uiux_package_contract_info.svg" alt="Package Contract Info" width="700"/>
 
-## 4. Quản lý hồ sơ mời thầu, dự thầu (Tender Document Management)
-- Tạo, lưu trữ, cập nhật hồ sơ mời thầu (HSMT), hồ sơ dự thầu (HSDT).
-- Quản lý lịch sử phát hành, nhận hồ sơ, mở thầu.
-- Đính kèm file tài liệu liên quan.
+### 15.3. Menu Nhà thầu
+- Click menu Nhà thầu: danh sách `uiux_contractor_list.svg` → <img src="../uiux_qlda/menu_nhathau/uiux_contractor_list.svg" alt="Contractor List" width="900"/>
+- "Thêm nhà thầu": popup `uiux_contractor_add.svg` → <img src="../uiux_qlda/menu_nhathau/uiux_contractor_add.svg" alt="Contractor Add" width="650"/>
+- Hành động "Xem": popup `uiux_contractor_detail_popup.svg` → <img src="../uiux_qlda/menu_nhathau/uiux_contractor_detail_popup.svg" alt="Contractor Detail" width="700"/>
 
-## 5. Quản lý quá trình lựa chọn nhà thầu (Bidding Process Management)
-- Lập kế hoạch lựa chọn nhà thầu.
-- Theo dõi các bước: phát hành HSMT, nhận HSDT, mở thầu, đánh giá, phê duyệt kết quả.
-- Ghi nhận biên bản, kết quả từng bước.
+### 15.4. Menu Kho tri thức
+- Click menu Kho tri thức: `uiux_knowledge_base.svg` → <img src="../uiux_qlda/menu_khotrithuc/uiux_knowledge_base.svg" alt="Knowledge Base" width="900"/>
+- "Thêm tài liệu": popup `uiux_knowledge_base_add_document.svg` → <img src="../uiux_qlda/menu_khotrithuc/uiux_knowledge_base_add_document.svg" alt="KB Add Document" width="650"/>
 
-## 6. Quản lý hợp đồng (Contract Management)
-- Thêm, sửa, xóa, tìm kiếm hợp đồng.
-- Quản lý thông tin hợp đồng: số hợp đồng, giá trị, ngày ký, ngày hoàn thành, trạng thái, giá trị thanh toán.
-- Theo dõi tiến độ thực hiện hợp đồng, các lần nghiệm thu, thanh toán.
+### 15.5. Menu Dashboard
+- Click menu Dashboard: `uiux_dashboard.svg` → <img src="../uiux_qlda/dashboard/uiux_dashboard.svg" alt="Dashboard" width="900"/>
+- Dữ liệu hiển thị tổng hợp từ cơ sở dữ liệu đã nhập tại các màn hình liên quan.
 
-## 7. Quản lý tài liệu (Document Management)
-- Lưu trữ, phân loại, tìm kiếm tài liệu liên quan đến dự án, gói thầu, hợp đồng.
-- Quản lý quyền truy cập tài liệu.
-- Lưu trữ, quản lý toàn bộ tài liệu của từng dự án, từng gói thầu riêng biệt theo mỗi giai đoạn của dự án, gói thầu.
+---
 
-## 8. Báo cáo, thống kê (Reporting & Analytics)
-- Báo cáo tiến độ dự án, gói thầu.
-- Báo cáo kết quả lựa chọn nhà thầu.
-- Báo cáo tổng hợp chi phí, giá trị hợp đồng, thanh toán.
-- Thống kê lịch sử tham gia thầu của nhà thầu.
-
-## 9. Quản lý người dùng, phân quyền (User & Permission Management)
-- Quản lý tài khoản người dùng: quản trị, cán bộ đấu thầu, lãnh đạo, nhà thầu...
-- Phân quyền truy cập theo vai trò.
-
-## 10. Nhật ký hoạt động (Audit Log)
-- Ghi nhận lịch sử thao tác của người dùng trên hệ thống.
-
-## 11. Tích hợp thông báo sự kiện quan trọng qua email & gửi mail tự động
-- Xây dựng EmailService để gửi email tự động khi có sự kiện quan trọng (tạo mới, thay đổi trạng thái, phát hành HSMT, mở thầu, ký hợp đồng, ...).
-- Cấu hình SMTP linh hoạt.
-
-## 12. Hỗ trợ nhập/xuất Excel, PDF
-- Sử dụng thư viện để xuất/nhập dữ liệu dự án, gói thầu, hợp đồng ra/vào file Excel, PDF.
-- Hỗ trợ import/export danh sách, báo cáo, biểu mẫu.
-
-## 13. Quy trình nghiệp vụ mẫu (Workflow)
-1. Tạo dự án → Thêm các gói thầu → Lập kế hoạch lựa chọn nhà thầu cho từng gói → Phát hành HSMT → Nhận HSDT → Mở thầu → Đánh giá → Phê duyệt kết quả → Ký hợp đồng → Theo dõi thực hiện hợp đồng → Nghiệm thu, thanh toán → Kết thúc dự án.
-
-## 14. Gợi ý mở rộng
-- Tích hợp thông báo SMS.
-- Tích hợp chữ ký số cho tài liệu, hợp đồng.
-- Tích hợp với hệ thống quản lý văn bản, tài chính.
+*Phần 15 đảm bảo tài liệu nghiệp vụ bám sát các tương tác UI/UX đã chốt, giúp thống nhất phạm vi và hành vi hệ thống.*

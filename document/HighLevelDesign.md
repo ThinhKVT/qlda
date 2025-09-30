@@ -163,83 +163,6 @@
 
 ---
 
-# Bổ sung chức năng cho màn hình project_list
-
-## Mục tiêu
-Nâng cấp màn hình danh sách dự án với các chức năng tìm kiếm nâng cao, lọc nhanh, sắp xếp, chọn nhiều, xuất báo cáo, hiển thị trạng thái trực quan và liên kết chi tiết dự án.
-
-## Phạm vi
-- Giao diện danh sách dự án (project_list)
-- Popup tìm kiếm nâng cao
-- Popup chọn trường xuất báo cáo
-
-## Chức năng bổ sung
-1. **Tìm kiếm nâng cao**: Popup cho phép lọc nhiều trường, mở từ nút "Tìm kiếm nâng cao".
-2. **Hiển thị tổng số bản ghi**: Dòng "Hiển thị 1-10/100 bản ghi" phía trên/dưới bảng.
-3. **Sắp xếp**: Click tiêu đề cột để sắp xếp, có icon mũi tên thể hiện trạng thái sort.
-4. **Lọc nhanh**: Dropdown nhỏ trên đầu bảng cho Loại dự án, Trạng thái, Năm kế hoạch.
-5. **Chọn nhiều bản ghi**: Checkbox đầu dòng và đầu bảng, thao tác hàng loạt (Xóa, Xuất báo cáo).
-6. **Trạng thái trực quan**: Badge màu, icon cho trạng thái (xanh, xám, đỏ).
-7. **Xuất báo cáo nâng cao**: Popup chọn trường xuất Excel, thêm xuất PDF.
-8. **Tên dự án là link**: Click mở màn hình chi tiết dự án.
-
-## UI/UX
-- Bố cục hợp lý, không chồng lấn.
-- Thành phần mới có chú thích rõ ràng trong SVG.
-- Đảm bảo khả năng mở rộng và dễ sử dụng cho frontend.
-
-## Lưu ý
-- SVG cập nhật là mẫu chuẩn cho frontend và trình bày dự án.
-
----
-
-## 8. Quy tắc nghiệp vụ tiến độ/giai đoạn theo loại dự án
-
-### 8.1. Các loại dự án và logic giai đoạn tiến độ
-- **Dự án:**
-  - Khi tạo mới, mặc định có 3 giai đoạn: Xây dựng BCKTKT, Thẩm định và phê duyệt BCKTKT, Quyết toán.
-  - Khi thêm mới gói thầu, chèn thêm 1 dòng tên gói thầu và 7 giai đoạn vào giữa "Thẩm định và phê duyệt BCKTKT" và "Quyết toán":
-    1. Xây dựng hồ sơ mời thầu
-    2. Thẩm định và phê duyệt HSMT
-    3. Tổ chức đấu thầu
-    4. Thẩm định và phê duyệt KQLCNT
-    5. Ký hợp đồng
-    6. Triển khai hợp đồng
-    7. Nghiệm thu thanh lý hợp đồng
-- **Phương án mua sắm hàng hoá:**
-  - Khi tạo mới, mặc định có 3 giai đoạn: Xây dựng PAMS, Thẩm định và phê duyệt PAMS, Quyết toán.
-  - Khi thêm mới gói thầu, chèn thêm 1 dòng tên gói thầu và 7 giai đoạn vào giữa "Thẩm định và phê duyệt PAMS" và "Quyết toán":
-    1. Thẩm định và phê duyệt HSMT
-    2. Tổ chức đấu thầu
-    3. Thẩm định và phê duyệt KQLCNT
-    4. Ký hợp đồng
-    5. Triển khai hợp đồng
-    6. Nghiệm thu thanh lý hợp đồng
-- **Phương án mua sắm dịch vụ:**
-  - Khi tạo mới, mặc định có 2 giai đoạn: Xây dựng PAMS, Thẩm định và phê duyệt PAMS (không có Quyết toán).
-  - Khi thêm mới gói thầu, chèn thêm 1 dòng tên gói thầu và 7 giai đoạn vào sau "Thẩm định và phê duyệt PAMS":
-    1. Thẩm định và phê duyệt HSMT
-    2. Tổ chức đấu thầu
-    3. Thẩm định và phê duyệt KQLCNT
-    4. Ký hợp đồng
-    5. Triển khai hợp đồng
-    6. Nghiệm thu thanh lý hợp đồng
-- **Phương án bảo trì:**
-  - Khi tạo mới, mặc định có 2 giai đoạn: Xây dựng PABT, Thẩm định và phê duyệt PABT (không có Quyết toán).
-  - Khi thêm mới gói thầu, chèn thêm 1 dòng tên gói thầu và 7 giai đoạn vào sau "Thẩm định và phê duyệt PABT":
-    1. Thẩm định và phê duyệt HSMT
-    2. Tổ chức đấu thầu
-    3. Thẩm định và phê duyệt KQLCNT
-    4. Ký hợp đồng
-    5. Triển khai hợp đồng
-    6. Nghiệm thu thanh lý hợp đồng
-
-### 8.2. Quy tắc giao diện
-- Nếu có nhiều gói thầu, giao diện tab Tiến độ sẽ xuất hiện thanh cuộn (scrollbar) để người dùng có thể cuộn xem hết các giai đoạn.
-- Logic này được thể hiện rõ trong các file thiết kế SVG (uiux_project_detail.svg, uiux_package_detail.svg).
-
----
-
 ## 8.1 Bổ sung High-level logic Tab Thanh toán hợp đồng
 - Phân biệt 2 ngữ cảnh hiển thị:
   - Trạng thái = "Chưa thanh toán": cột "Ngày thanh toán" và "Giá trị (VND)" thể hiện GIÁ TRỊ DỰ KIẾN.
@@ -262,4 +185,48 @@ Nâng cấp màn hình danh sách dự án với các chức năng tìm kiếm n
 
 ---
 
-*File này mô tả thiết kế tổng thể (high-level design) cho hệ thống quản lý dự án mua sắm áp dụng Luật Đấu thầu Việt Nam.*
+## 9. Luồng theo Menu (tham chiếu UI/UX đã chốt)
+
+Phần này chuẩn hoá high-level design theo các luồng người dùng thực tế trên UI, tham chiếu trực tiếp SVG trong thư mục `uiux_qlda/` để giữ đúng thiết kế.
+
+### 9.1. Dự án
+- Danh sách Dự án: <img src="../uiux_qlda/menu_project/uiux_project_list.svg" alt="Project List" width="900"/>
+- Thêm mới (popup): <img src="../uiux_qlda/menu_project/uiux_project_form.svg" alt="Project Form" width="650"/>
+- Tìm kiếm nâng cao (popup): <img src="../uiux_qlda/menu_project/uiux_project_advanced_search_popup.svg" alt="Advanced Search" width="650"/>
+- Chi tiết Dự án (mặc định tab Tiến độ): <img src="../uiux_qlda/menu_project/uiux_project_detail.svg" alt="Project Detail" width="900"/>
+  - Giai đoạn "Ký hợp đồng" → popup chỉnh sửa: <img src="../uiux_qlda/menu_project/uiux_contract_edit_form.svg" alt="Contract Edit Form" width="700"/>
+- Tab "Gói thầu": <img src="../uiux_qlda/menu_project/uiux_package_list.svg" alt="Package List" width="900"/>
+  - Thêm gói thầu (popup): <img src="../uiux_qlda/menu_project/uiux_package_form.svg" alt="Package Form" width="650"/>
+  - Xem gói thầu (mặc định tab Thông tin hợp đồng): <img src="../uiux_qlda/menu_project/uiux_package_detail.svg" alt="Package Detail" width="900"/>
+  - Tab "Thanh toán": <img src="../uiux_qlda/menu_project/uiux_package_detail_payment.svg" alt="Package Payment" width="900"/>
+    - Cập nhật đợt lần đầu (popup): <img src="../uiux_qlda/menu_project/uiux_package_payment_update_form.svg" alt="Payment Update Form" width="650"/>
+    - Chỉnh sửa lại (popup): <img src="../uiux_qlda/menu_project/uiux_package_payment_update_form_reopen.svg" alt="Payment Update Reopen" width="650"/>
+    - Trạng thái đã thanh toán: <img src="../uiux_qlda/menu_project/uiux_package_detail_payment_paid_state.svg" alt="Payment Paid State" width="900"/>
+  - Tab "Tài liệu": <img src="../uiux_qlda/menu_project/uiux_package_detail_documents.svg" alt="Package Documents" width="900"/>
+- Tab "Nhân sự": <img src="../uiux_qlda/menu_project/uiux_project_personnel.svg" alt="Project Personnel" width="900"/>
+  - Thêm nhân sự (popup): <img src="../uiux_qlda/menu_project/uiux_add_personnel_form.svg" alt="Add Personnel" width="650"/>
+- Tab "Tài liệu": <img src="../uiux_qlda/menu_project/uiux_project_document.svg" alt="Project Document" width="900"/>
+- Tab "Quyết toán": <img src="../uiux_qlda/menu_project/uiux_project_settlement.svg" alt="Project Settlement" width="900"/>
+  - Sửa (popup): <img src="../uiux_qlda/menu_project/uiux_project_settlement_edit_popup.svg" alt="Settlement Edit" width="650"/>
+  - Upload (popup): <img src="../uiux_qlda/menu_project/uiux_project_settlement_upload_popup.svg" alt="Settlement Upload" width="650"/>
+
+### 9.2. Hợp đồng
+- Danh sách Hợp đồng: <img src="../uiux_qlda/menu_hopdong/uiux_contract_list.svg" alt="Contract List" width="900"/>
+- Xem (popup): <img src="../uiux_qlda/menu_hopdong/uiux_package_contract_info.svg" alt="Package Contract Info" width="700"/>
+
+### 9.3. Nhà thầu
+- Danh sách Nhà thầu: <img src="../uiux_qlda/menu_nhathau/uiux_contractor_list.svg" alt="Contractor List" width="900"/>
+- Thêm nhà thầu (popup): <img src="../uiux_qlda/menu_nhathau/uiux_contractor_add.svg" alt="Contractor Add" width="650"/>
+- Xem (popup): <img src="../uiux_qlda/menu_nhathau/uiux_contractor_detail_popup.svg" alt="Contractor Detail" width="700"/>
+
+### 9.4. Kho tri thức
+- Màn hình KB: <img src="../uiux_qlda/menu_khotrithuc/uiux_knowledge_base.svg" alt="Knowledge Base" width="900"/>
+- Thêm tài liệu (popup): <img src="../uiux_qlda/menu_khotrithuc/uiux_knowledge_base_add_document.svg" alt="KB Add Document" width="650"/>
+
+### 9.5. Dashboard
+- Dashboard: <img src="../uiux_qlda/dashboard/uiux_dashboard.svg" alt="Dashboard" width="900"/>
+- Dữ liệu tổng hợp từ các màn hình nghiệp vụ liên quan (Dự án, Gói thầu, Hợp đồng, Thanh toán, Tài liệu...).
+
+---
+
+*Phần 9 giúp high-level design bám sát UI/UX chốt, tạo cầu nối rõ ràng giữa kiến trúc và trải nghiệm người dùng.*
