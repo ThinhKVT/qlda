@@ -1,0 +1,748 @@
+{
+  "info": {
+    "name": "QLDA - Project Management API",
+    "description": "API collection for Project Management System - Create, Read, Update, Delete projects with authentication",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "qlda-project-api-001",
+    "version": "1.0.0"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{jwt_token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8080",
+      "type": "string"
+    },
+    {
+      "key": "jwt_token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login (Get JWT Token)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.collectionVariables.set(\"jwt_token\", jsonData.accessToken);",
+                  "    console.log(\"JWT Token saved: \" + jsonData.accessToken);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "login"]
+            },
+            "description": "Login to get JWT token. Token will be automatically saved for subsequent requests."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Current User Info",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/auth/users/me",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "users", "me"]
+            },
+            "description": "Get information about the currently authenticated user"
+          },
+          "response": []
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/auth/refresh",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "refresh"]
+            },
+            "description": "Refresh the JWT token"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Projects",
+      "item": [
+        {
+          "name": "Create Project",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 201) {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.collectionVariables.set(\"project_id\", jsonData.id);",
+                  "    pm.collectionVariables.set(\"project_code\", jsonData.code);",
+                  "    console.log(\"Project created with ID: \" + jsonData.id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Dự án Xây dựng Trụ sở mới\",\n  \"description\": \"Xây dựng trụ sở làm việc 10 tầng tại Hà Nội\",\n  \"plan_year\": 2025,\n  \"start_date\": \"2025-01-01\",\n  \"end_date\": \"2025-12-31\",\n  \"status\": \"active\",\n  \"lead_department\": \"Phòng Kế hoạch Đầu tư\",\n  \"lead_staff\": \"Nguyễn Văn A\",\n  \"project_manager\": \"Trần Thị B\",\n  \"requirement\": \"Xây dựng theo tiêu chuẩn LEED\",\n  \"options\": \"{\\\"priority\\\": \\\"high\\\", \\\"contract_type\\\": \\\"design_build\\\"}\",\n  \"project_type\": \"XAY_DUNG\",\n  \"investment_budget\": 50000000000,\n  \"currency\": \"VND\",\n  \"plan_type\": \"Kế hoạch năm\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/projects",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects"]
+            },
+            "description": "Create a new project. Requires Admin role. Project code will be auto-generated as DA-{year}-{seq}"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Projects (No Filter)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects?page=0&size=10",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "Get paginated list of all projects"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Projects with Filters",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects?page=0&size=10&status=active&start_date_from=2025-01-01&lead_department=Phòng Kế hoạch",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                },
+                {
+                  "key": "status",
+                  "value": "active",
+                  "description": "Filter by status (comma-separated for multiple)"
+                },
+                {
+                  "key": "start_date_from",
+                  "value": "2025-01-01",
+                  "description": "Filter by start date from"
+                },
+                {
+                  "key": "lead_department",
+                  "value": "Phòng Kế hoạch",
+                  "description": "Filter by lead department"
+                },
+                {
+                  "key": "project_code",
+                  "value": "",
+                  "disabled": true,
+                  "description": "Filter by project code (exact match)"
+                },
+                {
+                  "key": "start_date_to",
+                  "value": "",
+                  "disabled": true,
+                  "description": "Filter by start date to"
+                },
+                {
+                  "key": "end_date_from",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "end_date_to",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "lead_staff",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "project_manager",
+                  "value": "",
+                  "disabled": true
+                },
+                {
+                  "key": "requirement",
+                  "value": "",
+                  "disabled": true,
+                  "description": "Filter by requirement (contains search)"
+                },
+                {
+                  "key": "sort",
+                  "value": "name,asc",
+                  "disabled": true,
+                  "description": "Sort by field (e.g., name,asc or startDate,desc)"
+                }
+              ]
+            },
+            "description": "Get filtered and paginated projects. Enable/disable query params as needed."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Project by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}"]
+            },
+            "description": "Get detailed information about a specific project including associated documents"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Project",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Dự án Xây dựng Trụ sở mới (Cập nhật)\",\n  \"description\": \"Xây dựng trụ sở làm việc 10 tầng tại Hà Nội - Cập nhật tiến độ\",\n  \"status\": \"active\",\n  \"requirement\": \"Xây dựng theo tiêu chuẩn LEED Gold\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}"]
+            },
+            "description": "Update project information. Only non-null fields will be updated. ID and project_code cannot be changed. Requires Admin role."
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Project (Soft Delete)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects/{{project_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{{project_id}}"]
+            },
+            "description": "Soft delete a project and cascade to all related entities (packages, contracts, documents). Requires Admin role."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Documents",
+      "item": [
+        {
+          "name": "Upload Document",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "type",
+                  "value": "contract",
+                  "type": "text"
+                },
+                {
+                  "key": "projectId",
+                  "value": "{{project_id}}",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/documents/upload",
+              "host": ["{{base_url}}"],
+              "path": ["api", "documents", "upload"]
+            },
+            "description": "Upload a document file and associate with project/package/contract"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Documents",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/documents",
+              "host": ["{{base_url}}"],
+              "path": ["api", "documents"]
+            },
+            "description": "Get list of all documents"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Documents by Project",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/documents?projectId={{project_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "documents"],
+              "query": [
+                {
+                  "key": "projectId",
+                  "value": "{{project_id}}"
+                }
+              ]
+            },
+            "description": "Get all documents associated with a specific project"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Packages",
+      "item": [
+        {
+          "name": "Create Package",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 201) {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.collectionVariables.set(\"package_id\", jsonData.id);",
+                  "    console.log(\"Package created with ID: \" + jsonData.id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"projectId\": \"{{project_id}}\",\n  \"name\": \"Gói thầu Xây dựng Phần thô\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/packages",
+              "host": ["{{base_url}}"],
+              "path": ["api", "packages"]
+            },
+            "description": "Create a new package (gói thầu) for a project"
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Packages",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/packages",
+              "host": ["{{base_url}}"],
+              "path": ["api", "packages"]
+            },
+            "description": "Get list of all packages"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Packages by Project",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/packages?projectId={{project_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "packages"],
+              "query": [
+                {
+                  "key": "projectId",
+                  "value": "{{project_id}}"
+                }
+              ]
+            },
+            "description": "Get all packages for a specific project"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Test Scenarios",
+      "item": [
+        {
+          "name": "Scenario 1: Complete Project Flow",
+          "item": [
+            {
+              "name": "1. Login as Admin",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Login successful\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.accessToken).to.exist;",
+                      "    pm.collectionVariables.set(\"jwt_token\", jsonData.accessToken);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/auth/login",
+                  "host": ["{{base_url}}"],
+                  "path": ["auth", "login"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "2. Create New Project",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Project created\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.id).to.exist;",
+                      "    pm.expect(jsonData.code).to.match(/^DA-\\d{4}-\\d{3}$/);",
+                      "    pm.collectionVariables.set(\"project_id\", jsonData.id);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Test Project - Automated\",\n  \"plan_year\": 2025,\n  \"start_date\": \"2025-03-01\",\n  \"end_date\": \"2025-11-30\",\n  \"lead_department\": \"IT Department\",\n  \"lead_staff\": \"John Doe\",\n  \"project_manager\": \"Jane Smith\",\n  \"requirement\": \"Automated test requirement\",\n  \"project_type\": \"DICH_VU\",\n  \"investment_budget\": 1000000,\n  \"currency\": \"VND\",\n  \"plan_type\": \"Test Plan\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/projects",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "projects"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "3. Get Project Detail",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Get project detail successful\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.name).to.equal(\"Test Project - Automated\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/projects/{{project_id}}",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "projects", "{{project_id}}"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "4. Update Project",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Project updated\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.description).to.include(\"Updated\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"Updated description for automated test\",\n  \"status\": \"in_progress\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/projects/{{project_id}}",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "projects", "{{project_id}}"]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "5. List Projects with Filter",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"List projects successful\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.content).to.be.an('array');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/projects?status=in_progress",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "projects"],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "in_progress"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "6. Soft Delete Project",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Project soft deleted\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/api/projects/{{project_id}}",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "projects", "{{project_id}}"]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Scenario 2: Validation Tests",
+          "item": [
+            {
+              "name": "Create Project - Missing Required Field",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Validation error returned\", function () {",
+                      "    pm.response.to.have.status(400);",
+                      "    var jsonData = pm.response.json();",
+                      "    pm.expect(jsonData.message).to.include(\"Validation\");",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"plan_year\": 2025,\n  \"start_date\": \"2025-01-01\",\n  \"end_date\": \"2025-12-31\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/projects",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "projects"]
+                },
+                "description": "Test validation - missing required 'name' field"
+              },
+              "response": []
+            },
+            {
+              "name": "Create Project - Invalid Date Range",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Date validation error\", function () {",
+                      "    pm.response.to.have.status(400);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Invalid Date Project\",\n  \"plan_year\": 2025,\n  \"start_date\": \"2025-12-31\",\n  \"end_date\": \"2025-01-01\",\n  \"lead_department\": \"Test\",\n  \"lead_staff\": \"Test\",\n  \"project_manager\": \"Test\",\n  \"requirement\": \"Test\",\n  \"project_type\": \"XAY_DUNG\",\n  \"investment_budget\": 1000000,\n  \"currency\": \"VND\",\n  \"plan_type\": \"Test\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/projects",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "projects"]
+                },
+                "description": "Test date validation - end_date before start_date"
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

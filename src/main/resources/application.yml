@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/qlda
+    username: qlda
+    password: qlda
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: false
+  flyway:
+    enabled: false
+    baseline-on-migrate: true
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+app:
+  jwt:
+    # Sinh khoá bí mật ngẫu nhiên bằng lệnh: openssl rand -base64 32
+    secret: "GtfQigidO6Uhh7jLgL5arSjG8CwFj8Gf9BLen+RMTME="
+    issuer: "qlda"
+    ttlSeconds: 28800
+
+# Springdoc OpenAPI UI
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

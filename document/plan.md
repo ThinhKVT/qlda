@@ -46,6 +46,67 @@ Lưu ý tách ghép & phụ thuộc
 - U-CONTRACTS dựa trên dữ liệu hợp đồng của U-PROJECT (readonly) — integration qua API.
 - U-DASHBOARD phụ thuộc các API công khai của các unit khác.
 
+## Phụ thuộc triển khai giữa các Units (để sắp xếp thứ tự ưu tiên)
+
+Phân loại phụ thuộc
+- Phụ thuộc nền tảng (Hard deps – bắt buộc trước khi triển khai unit khác):
+  - U-PLATFORM (OpenAPI, DB/Migration, CI) → nền cho tất cả.
+  - U-IDENT (Auth/JWT/Roles) → bảo vệ API của tất cả các unit còn lại.
+- Phụ thuộc chức năng (Hard deps):
+  - U-PROJECT → cần U-PLATFORM, U-IDENT.
+  - U-PAYMENTS → cần U-PROJECT (để lấy Contract/Value/Installments) và U-DOCS (đính kèm hồ sơ thanh toán).
+  - U-CONTRACTS (readonly) → cần U-PROJECT (để đọc Contract theo Package).
+  - U-DASHBOARD → cần các API đã công bố của U-PROJECT/U-PAYMENTS/U-DOCS/U-CONTRACTS.
+- Phụ thuộc mềm (Soft deps – tích hợp nâng trải nghiệm):
+  - U-PROJECT tra cứu nhà thầu qua U-CONTRACTOR khi cập nhật hợp đồng (có thể stub tạm ở Sprint 1).
+  - U-DOCS được nhiều module sử dụng nhưng có thể bật dần UI từng nơi (PROJ-10/12, KB-01/02).
+
+Đồ thị phụ thuộc (Mermaid)
+```mermaid
+flowchart LR
+  PLATFORM[U-PLATFORM] --> IDENT[U-IDENT]
+  PLATFORM --> PROJECT[U-PROJECT]
+  IDENT --> PROJECT
+  PROJECT --> CONTRACTS[U-CONTRACTS]
+  PROJECT --> PAYMENTS[U-PAYMENTS]
+  DOCS[U-DOCS] --> PAYMENTS
+  IDENT --> PAYMENTS
+  IDENT --> DOCS
+  PLATFORM --> DOCS
+  IDENT --> CONTRACTOR[U-CONTRACTOR]
+  PLATFORM --> CONTRACTOR
+  PROJECT -. tra cứu nhà thầu .-> CONTRACTOR
+  PROJECT --> DASHBOARD[U-DASHBOARD]
+  PAYMENTS --> DASHBOARD
+  DOCS --> DASHBOARD
+  CONTRACTS --> DASHBOARD
+```
+
+Thứ tự ưu tiên implement theo phụ thuộc (đề xuất)
+1) U-PLATFORM (API-01, DB-01, CI-01) — nền cho tất cả các unit.
+2) U-IDENT (SEC-01) — bảo vệ API, cung cấp /auth và /users/me.
+3) U-PROJECT (PROJ-01, PROJ-03, PROJ-04, PROJ-06, PROJ-08) — luồng lõi Dự án→Gói thầu→Thông tin HĐ.
+4) U-DOCS (DOC-API-01) — dịch vụ tài liệu chung; dùng ngay cho PROJ-10/12 ở sprint tiếp theo.
+5) U-PAYMENTS (PROJ-09, PAY-API-01) — phụ thuộc dữ liệu hợp đồng từ U-PROJECT và đính kèm từ U-DOCS.
+6) U-CONTRACTOR (BID-01/02/03) — phục vụ lookup nhà thầu khi chỉnh HĐ; có thể làm song song sau khi U-PROJECT ổn định.
+7) U-CONTRACTS (CONT-01/02) — hiển thị readonly dựa trên dữ liệu HĐ từ U-PROJECT.
+8) U-DASHBOARD (DASH-01) — tổng hợp từ các unit trên, làm cuối khi số liệu ổn định.
+
+Gợi ý sắp xếp theo sprint (đã thống nhất)
+- Sprint 1 (2 tuần, 1 team): U-PLATFORM, U-IDENT, U-PROJECT (PROJ-01/03/04/06/08), U-DOCS (DOC-API-01). Mục tiêu: demo flow Dự án → Gói thầu → Thông tin HĐ.
+- Sprint 2: U-PAYMENTS (PROJ-09, PAY-API-01), U-DOCS UI (PROJ-10, PROJ-12), PROJ-02, PROJ-07, U-CONTRACTOR (BID-01/02 phần chính).
+- Sprint 3: U-CONTRACTS (CONT-01/02), Kho tri thức (KB-01/02), Dashboard (DASH-01), Audit log mở rộng.
+
+Ma trận phụ thuộc rút gọn (theo Unit → cần gì trước)
+- U-PLATFORM → (không phụ thuộc)
+- U-IDENT → U-PLATFORM
+- U-PROJECT → U-PLATFORM, U-IDENT
+- U-DOCS → U-PLATFORM, U-IDENT
+- U-PAYMENTS → U-PROJECT, U-DOCS, U-IDENT
+- U-CONTRACTOR → U-PLATFORM, U-IDENT
+- U-CONTRACTS → U-PROJECT, U-PLATFORM, U-IDENT
+- U-DASHBOARD → U-PROJECT, U-PAYMENTS, U-DOCS, U-CONTRACTS, U-PLATFORM, U-IDENT
+
 ---
 
 Kế hoạch thực hiện (chỉ tạo tài liệu, chưa thiết kế kỹ thuật)

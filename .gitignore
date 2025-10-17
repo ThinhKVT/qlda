@@ -36,3 +36,24 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Java / Build artifacts ###
+*.jar
+*.war
+*.ear
+*.class
+
+### Logs and env ###
+logs/
+*.log
+*.log.*
+.env
+.env.*
+
+### Maven / Wrapper ###
+.mvn/
+
+### OS / Editor ###
+Thumbs.db
+*.tmp
+*.swp
