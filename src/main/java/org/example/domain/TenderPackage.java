@@ -25,4 +25,7 @@ public class TenderPackage {
 
     @Column(name = "deleted")
     private Boolean deleted = false;
+
+    @Column(name = "description")
+    private String description;
 }
